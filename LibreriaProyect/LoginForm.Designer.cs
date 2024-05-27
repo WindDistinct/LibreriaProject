@@ -88,6 +88,7 @@
             Controls.Add(label1);
             Controls.Add(txtPassword);
             Controls.Add(txtUser);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
