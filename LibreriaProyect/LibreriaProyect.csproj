@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Data.Common" Version="4.3.0" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <ProjectReference Include="..\ClienteRenta_BE\ClienteRenta_BE.csproj" />
+    <ProjectReference Include="..\ClienteRenta_BL\ClienteRenta_BL.csproj" />
   </ItemGroup>
 
 </Project>
