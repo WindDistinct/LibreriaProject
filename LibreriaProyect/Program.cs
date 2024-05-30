@@ -1,3 +1,5 @@
+using Libreria_GUI;
+
 namespace LibreriaProyect
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace LibreriaProyect
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new ClienteMan01());
+            Application.Run(new AutorMan01());
         }
     }
 }
