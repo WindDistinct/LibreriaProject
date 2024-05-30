@@ -4,10 +4,10 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClienteRenta_ADO;
-using ClienteRenta_BE;
+using Libreria_ADO;
 using Libreria_BE;
-namespace ClienteRenta_BL
+
+namespace Libreria_BE
 {
     public class AutorBL
     {

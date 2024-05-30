@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClienteRenta_ADO
+namespace Libreria_ADO
 {
     internal class ConexionADO
     {   

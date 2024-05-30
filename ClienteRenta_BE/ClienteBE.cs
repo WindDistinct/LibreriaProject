@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClienteRenta_BE
+namespace Libreria_BE
 {
     public class ClienteBE
     {

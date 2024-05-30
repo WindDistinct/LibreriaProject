@@ -3,34 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using System.Data;
 using System.Data.SqlClient;
 using Libreria_BE;
 
 namespace Libreria_ADO
 {
-
-    public class AutorADO
+    public class LibroADO
     {
         ConexionADO MiConexion = new ConexionADO();
         SqlConnection cnx = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
         SqlDataReader dtr;
 
-        public DataTable ListarAutor()
+        public DataTable ListarLibro()
         {
             try
             {
                 cnx.ConnectionString = MiConexion.GetCnx();
                 cmd.Connection = cnx;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "usp_ListarAutor";
+                cmd.CommandText = "usp_ListarLibro";
                 cmd.Parameters.Clear();
 
                 DataSet dts = new DataSet();
                 SqlDataAdapter ada = new SqlDataAdapter(cmd);
-                ada.Fill(dts, "Autores");
-                return dts.Tables["Autores"];
+                ada.Fill(dts, "Libros");
+                return dts.Tables["Libros"];
 
             }
             catch (SqlException ex)
@@ -39,18 +39,18 @@ namespace Libreria_ADO
             }
         }
 
-        public AutorBE ConsultarAutor(String strCodigo)
+        public LibroBE ConsultarLibro(String strCodigo)
         {
             try
             {
-                AutorBE objAutorBE = new AutorBE();
+                LibroBE objLibroBE = new LibroBE();
 
                 cnx.ConnectionString = MiConexion.GetCnx();
                 cmd.Connection = cnx;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "usp_ConsultarAutor";
+                cmd.CommandText = "usp_ConsultarLibro";
                 cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@aut_id", strCodigo);
+                cmd.Parameters.AddWithValue("@lib_id", strCodigo);
 
                 cnx.Open();
                 dtr = cmd.ExecuteReader();
@@ -58,19 +58,23 @@ namespace Libreria_ADO
                 if (dtr.HasRows == true)
                 {
                     dtr.Read();
-                    objAutorBE.aut_id = Convert.ToInt16(dtr["aut_id"]);
-                    objAutorBE.aut_nom = dtr["aut_nom"].ToString();
-                    objAutorBE.aut_ape = dtr["aut_ape"].ToString();
-                    objAutorBE.aut_pais = dtr["aut_pais"].ToString();
-                    objAutorBE.aut_user_reg = dtr["aut_user_reg"].ToString();
-                  
+                    objLibroBE.lib_id = Convert.ToInt16(dtr["lib_id"]);
+                    objLibroBE.lib_nom = dtr["lib_nom"].ToString();
+                    objLibroBE.aut_id = Convert.ToInt16(dtr["aut_id"]);
+                    objLibroBE.gen_id = Convert.ToInt16(dtr["gen_id"]);
+                    objLibroBE.lib_edi = dtr["cli_tel"].ToString();
+                    objLibroBE.lib_fec_pub = Convert.ToInt16(dtr["lib_fec_pub"]);
+                    objLibroBE.lib_disp_stock = Convert.ToInt16(dtr["lib_disp_stock"]);
+                    objLibroBE.edi_id = Convert.ToInt16(dtr["edi_id"]);
+                    objLibroBE.lib_user_reg = dtr["lib_user_reg"].ToString();
+                    objLibroBE.lib_state = Convert.ToInt16(dtr["state"]);
                 }
                 else
                 {
-                    objAutorBE.aut_id = Convert.ToInt16(String.Empty);
+                    objLibroBE.lib_id = Convert.ToInt16(String.Empty);
                 }
                 dtr.Close();
-                return objAutorBE;
+                return objLibroBE;
 
             }
             catch (SqlException ex)
@@ -86,20 +90,24 @@ namespace Libreria_ADO
             }
         }
 
-        public Boolean InsertarAutor(AutorBE objAutorBE)
+        public Boolean InsertarLibro(LibroBE objLibroBE)
         {
             try
             {
                 cnx.ConnectionString = MiConexion.GetCnx();
                 cmd.Connection = cnx;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "usp_InsertarAutor";
+                cmd.CommandText = "usp_InsertaLibro";
                 cmd.Parameters.Clear();
 
-                cmd.Parameters.AddWithValue("@aut_nom", objAutorBE.aut_nom);
-                cmd.Parameters.AddWithValue("@aut_ape", objAutorBE.aut_ape);
-                cmd.Parameters.AddWithValue("@aut_pais", objAutorBE.aut_pais);
-                cmd.Parameters.AddWithValue("@aut_user_reg", objAutorBE.aut_user_reg);
+                cmd.Parameters.AddWithValue("@lib_nom", objLibroBE.lib_nom);
+                cmd.Parameters.AddWithValue("@aut_id", objLibroBE.aut_id);
+                cmd.Parameters.AddWithValue("@gen_id", objLibroBE.gen_id);
+                cmd.Parameters.AddWithValue("@lib_edi", objLibroBE.lib_edi);
+                cmd.Parameters.AddWithValue("@lib_fec_pub", objLibroBE.lib_fec_pub);
+                cmd.Parameters.AddWithValue("@lib_disp_stock", objLibroBE.lib_disp_stock);
+                cmd.Parameters.AddWithValue("@edi_id", objLibroBE.edi_id);
+                cmd.Parameters.AddWithValue("@lib_user_reg", objLibroBE.lib_user_reg);
 
                 cnx.Open();
                 cmd.ExecuteNonQuery();
@@ -121,21 +129,25 @@ namespace Libreria_ADO
             }
         }
 
-        public Boolean EditarAutor(AutorBE objAutorBE)
+        public Boolean EditarLibro(LibroBE objLibroBE)
         {
             try
             {
                 cnx.ConnectionString = MiConexion.GetCnx();
                 cmd.Connection = cnx;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "usp_EditarAutor";
+                cmd.CommandText = "usp_EditarLibro";
                 cmd.Parameters.Clear();
 
-                cmd.Parameters.AddWithValue("@aut_id", objAutorBE.aut_id);
-                cmd.Parameters.AddWithValue("@aut_nom", objAutorBE.aut_nom);
-                cmd.Parameters.AddWithValue("@aut_ape", objAutorBE.aut_ape);
-                cmd.Parameters.AddWithValue("@aut_pais", objAutorBE.aut_pais);
-                cmd.Parameters.AddWithValue("@aut_user_mod", objAutorBE.aut_user_mod);
+                cmd.Parameters.AddWithValue("@lib_id", objLibroBE.lib_id);
+                cmd.Parameters.AddWithValue("@lib_nom", objLibroBE.lib_nom);
+                cmd.Parameters.AddWithValue("@aut_id", objLibroBE.aut_id);
+                cmd.Parameters.AddWithValue("@gen_id", objLibroBE.gen_id);
+                cmd.Parameters.AddWithValue("@lib_edi", objLibroBE.lib_edi);
+                cmd.Parameters.AddWithValue("@lib_fec_pub", objLibroBE.lib_fec_pub);
+                cmd.Parameters.AddWithValue("@lib_disp_stock", objLibroBE.lib_disp_stock);
+                cmd.Parameters.AddWithValue("@edi_id", objLibroBE.edi_id);
+                cmd.Parameters.AddWithValue("@lib_user_mod", objLibroBE.lib_user_mod);
 
                 cnx.Open();
                 cmd.ExecuteNonQuery();

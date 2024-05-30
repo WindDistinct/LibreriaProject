@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 using System.Data;
 using System.Data.SqlClient;
-using ClienteRenta_BE;
-namespace ClienteRenta_ADO
+using Libreria_BE;
+
+namespace Libreria_ADO
 {
     public class ClienteADO
     {

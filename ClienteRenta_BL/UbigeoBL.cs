@@ -4,9 +4,10 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClienteRenta_ADO;
+using Libreria_BE;
+using Libreria_ADO;
 
-namespace ClienteRenta_BL
+namespace Libreria_BL
 {
     public class UbigeoBL
     {
