@@ -68,6 +68,7 @@
             txtDni.Name = "txtDni";
             txtDni.Size = new Size(220, 27);
             txtDni.TabIndex = 36;
+            txtDni.KeyPress += txtDni_KeyPress;
             // 
             // txtTelefono
             // 
@@ -76,6 +77,7 @@
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(191, 27);
             txtTelefono.TabIndex = 35;
+            txtTelefono.KeyPress += txtTelefono_KeyPress;
             // 
             // txtDireccion
             // 
@@ -106,6 +108,7 @@
             btnCancelar.TabIndex = 31;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnGrabar
             // 
@@ -115,6 +118,7 @@
             btnGrabar.TabIndex = 30;
             btnGrabar.Text = "Grabar";
             btnGrabar.UseVisualStyleBackColor = true;
+            btnGrabar.Click += btnGrabar_Click;
             // 
             // groupBox1
             // 
@@ -252,7 +256,7 @@
             lblCodNum.BorderStyle = BorderStyle.FixedSingle;
             lblCodNum.Location = new Point(306, 20);
             lblCodNum.Name = "lblCodNum";
-            lblCodNum.Size = new Size(111, 32);
+            lblCodNum.Size = new Size(58, 32);
             lblCodNum.TabIndex = 39;
             // 
             // ClienteMan03

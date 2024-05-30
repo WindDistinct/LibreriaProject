@@ -27,5 +27,9 @@ namespace ClienteRenta_BL
         {
             return objClienteADO.InsertarCliente(objClienteBE);
         }
+        public Boolean EditarCliente(ClienteBE objClienteBE)
+        {
+            return objClienteADO.EditarCliente(objClienteBE);
+        }
     }
 }
