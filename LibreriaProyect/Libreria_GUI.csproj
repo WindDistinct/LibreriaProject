@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClienteRenta_BE\ClienteRenta_BE.csproj" />
-    <ProjectReference Include="..\ClienteRenta_BL\ClienteRenta_BL.csproj" />
+    <ProjectReference Include="..\ClienteRenta_BE\Libreria_BE.csproj" />
+    <ProjectReference Include="..\ClienteRenta_BL\Libreria_BL.csproj" />
   </ItemGroup>
 
 </Project>

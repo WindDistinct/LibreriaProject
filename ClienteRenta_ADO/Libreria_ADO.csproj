@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClienteRenta_BE\ClienteRenta_BE.csproj" />
+    <ProjectReference Include="..\ClienteRenta_BE\Libreria_BE.csproj" />
   </ItemGroup>
 
 </Project>

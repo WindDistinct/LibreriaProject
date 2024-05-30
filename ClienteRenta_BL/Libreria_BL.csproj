@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClienteRenta_ADO\ClienteRenta_ADO.csproj" />
-    <ProjectReference Include="..\ClienteRenta_BE\ClienteRenta_BE.csproj" />
+    <ProjectReference Include="..\ClienteRenta_ADO\Libreria_ADO.csproj" />
+    <ProjectReference Include="..\ClienteRenta_BE\Libreria_BE.csproj" />
   </ItemGroup>
 
 </Project>

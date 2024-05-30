@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibreriaProyect", "LibreriaProyect\LibreriaProyect.csproj", "{CC2804F1-F6A9-4FEE-BBF5-B28D56497B74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Libreria_GUI", "LibreriaProyect\Libreria_GUI.csproj", "{CC2804F1-F6A9-4FEE-BBF5-B28D56497B74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteRenta_ADO", "ClienteRenta_ADO\ClienteRenta_ADO.csproj", "{81490BD8-796C-40BB-AD4D-2B6F7947EC71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Libreria_ADO", "ClienteRenta_ADO\Libreria_ADO.csproj", "{81490BD8-796C-40BB-AD4D-2B6F7947EC71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteRenta_BL", "ClienteRenta_BL\ClienteRenta_BL.csproj", "{07C388ED-E19D-4374-8959-A1D52BC4DE6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Libreria_BL", "ClienteRenta_BL\Libreria_BL.csproj", "{07C388ED-E19D-4374-8959-A1D52BC4DE6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteRenta_BE", "ClienteRenta_BE\ClienteRenta_BE.csproj", "{36DBFCF5-72A5-4F14-8EC0-8C4EDB42A5BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Libreria_BE", "ClienteRenta_BE\Libreria_BE.csproj", "{36DBFCF5-72A5-4F14-8EC0-8C4EDB42A5BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
