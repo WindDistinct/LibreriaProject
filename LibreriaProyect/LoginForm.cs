@@ -10,11 +10,7 @@ namespace LibreriaProyect
         {
             InitializeComponent();
         }
-        SqlConnection conn = new SqlConnection(@"Data Source=.;Initial Catalog=test;Persist Security Info=True;User ID=sa;Password=sa;Encrypt=False");
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -24,10 +20,10 @@ namespace LibreriaProyect
             try
             {
                 String query = "Select * from tb_user where username = '" + txtUser.Text + "' and password = '" + txtPassword.Text + "'";
-                SqlDataAdapter sda = new SqlDataAdapter(query, conn);
+                //SqlDataAdapter sda = new SqlDataAdapter(query, conn);
 
                 DataTable dTable = new DataTable();
-                sda.Fill(dTable);
+                //sda.Fill(dTable);
 
                 if (dTable.Rows.Count > 0)
                 {
@@ -53,7 +49,7 @@ namespace LibreriaProyect
             }
             finally
             {
-                conn.Close();
+                //conn.Close();
             }
         }
     }

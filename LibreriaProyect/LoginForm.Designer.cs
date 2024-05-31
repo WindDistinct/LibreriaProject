@@ -30,9 +30,9 @@
         {
             txtUser = new TextBox();
             txtPassword = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            button1 = new Button();
+            lblPassword = new Label();
+            btnIngresar = new Button();
+            lblUsuario = new Label();
             SuspendLayout();
             // 
             // txtUser
@@ -49,43 +49,42 @@
             txtPassword.Size = new Size(100, 23);
             txtPassword.TabIndex = 1;
             // 
-            // label1
+            // lblPassword
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(47, 43);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Usuario:";
-            label1.Click += label1_Click;
+            lblPassword.AutoSize = true;
+            lblPassword.Location = new Point(47, 107);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(70, 15);
+            lblPassword.TabIndex = 3;
+            lblPassword.Text = "Contraseña:";
             // 
-            // label2
+            // btnIngresar
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(47, 107);
-            label2.Name = "label2";
-            label2.Size = new Size(70, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Contraseña:";
+            btnIngresar.Location = new Point(88, 159);
+            btnIngresar.Name = "btnIngresar";
+            btnIngresar.Size = new Size(75, 23);
+            btnIngresar.TabIndex = 4;
+            btnIngresar.Text = "Ingresar";
+            btnIngresar.UseVisualStyleBackColor = true;
+            btnIngresar.Click += button1_Click;
             // 
-            // button1
+            // lblUsuario
             // 
-            button1.Location = new Point(88, 159);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 4;
-            button1.Text = "Ingresar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            lblUsuario.AutoSize = true;
+            lblUsuario.Location = new Point(47, 43);
+            lblUsuario.Name = "lblUsuario";
+            lblUsuario.Size = new Size(50, 15);
+            lblUsuario.TabIndex = 5;
+            lblUsuario.Text = "Usuario:";
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(279, 218);
-            Controls.Add(button1);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(lblUsuario);
+            Controls.Add(btnIngresar);
+            Controls.Add(lblPassword);
             Controls.Add(txtPassword);
             Controls.Add(txtUser);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -101,8 +100,8 @@
 
         private TextBox txtUser;
         private TextBox txtPassword;
-        private Label label1;
-        private Label label2;
-        private Button button1;
+        private Label lblPassword;
+        private Button btnIngresar;
+        private Label lblUsuario;
     }
 }

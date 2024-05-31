@@ -20,6 +20,6 @@ namespace Libreria_BE
         public DateTime lib_fec_reg {  get; set; }
         public String lib_user_mod { get; set; }
         public DateTime lib_fec_mod { get; set; }
-        public Int16 lib_state { get; set; }
+        public Boolean lib_state { get; set; }
     }
 }
