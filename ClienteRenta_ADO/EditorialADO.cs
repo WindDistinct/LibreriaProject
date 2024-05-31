@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Libreria_ADO
 {
-    internal class EditorialADO
+    public class EditorialADO
     {
         ConexionADO MiConexion = new ConexionADO();
         SqlConnection cnx = new SqlConnection();

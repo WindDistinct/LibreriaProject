@@ -38,6 +38,27 @@ namespace Libreria_ADO
                 throw new Exception(ex.Message);
             }
         }
+        public DataTable ListarAutorCompuesto()
+        {
+            try
+            {
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "usp_ListarAutorCompuesto";
+                cmd.Parameters.Clear();
+
+                DataSet dts = new DataSet();
+                SqlDataAdapter ada = new SqlDataAdapter(cmd);
+                ada.Fill(dts, "Autores");
+                return dts.Tables["Autores"];
+
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
         public AutorBE ConsultarAutor(String strCodigo)
         {

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Libreria_ADO
 {
-    internal class GeneroADO
+    public class GeneroADO
     {
         ConexionADO MiConexion = new ConexionADO();
         SqlConnection cnx = new SqlConnection();

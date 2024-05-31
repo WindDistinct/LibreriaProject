@@ -62,12 +62,11 @@ namespace Libreria_ADO
                     objLibroBE.lib_nom = dtr["lib_nom"].ToString();
                     objLibroBE.aut_id = Convert.ToInt16(dtr["aut_id"]);
                     objLibroBE.gen_id = Convert.ToInt16(dtr["gen_id"]);
-                    objLibroBE.lib_edi = dtr["cli_tel"].ToString();
+                    objLibroBE.lib_edi = dtr["lib_edi"].ToString();
                     objLibroBE.lib_fec_pub = Convert.ToInt16(dtr["lib_fec_pub"]);
                     objLibroBE.lib_disp_stock = Convert.ToInt16(dtr["lib_disp_stock"]);
                     objLibroBE.edi_id = Convert.ToInt16(dtr["edi_id"]);
                     objLibroBE.lib_user_reg = dtr["lib_user_reg"].ToString();
-                    objLibroBE.lib_state = Convert.ToInt16(dtr["state"]);
                 }
                 else
                 {
