@@ -8,6 +8,7 @@ namespace Libreria_BE
 {
     public class PersonalBE
     {
+        public Int16 per_id {  get; set; }
         public String per_nom { get; set; }
         public String per_ape_pat { get; set; }
         public String per_ape_mat { get; set; }
