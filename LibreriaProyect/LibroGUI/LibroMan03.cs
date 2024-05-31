@@ -66,9 +66,9 @@ namespace Libreria_GUI.LibroGUI
 
                 lblCodNum.Text = objLibroBE.lib_id.ToString();
                 txtNombre.Text = objLibroBE.lib_nom;
-                cboAutor.SelectedValue = objLibroBE.aut_id;
-                cboEditorial.SelectedValue = objLibroBE.edi_id;
-                cboGenero.SelectedValue = objLibroBE.gen_id;
+                cboAutor.SelectedValue = objLibroBE.aut_id.ToString();
+                cboEditorial.SelectedValue = objLibroBE.edi_id.ToString();
+                cboGenero.SelectedValue = objLibroBE.gen_id.ToString();
                 txtEdicion.Text = objLibroBE.lib_edi;
                 txtFecPub.Text = objLibroBE.lib_fec_pub.ToString();
                 txtStock.Text = objLibroBE.lib_disp_stock.ToString();   
