@@ -41,35 +41,38 @@
             // dtgDatos
             // 
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgDatos.Location = new Point(12, 70);
+            dtgDatos.Location = new Point(10, 52);
+            dtgDatos.Margin = new Padding(3, 2, 3, 2);
             dtgDatos.Name = "dtgDatos";
             dtgDatos.RowHeadersWidth = 51;
-            dtgDatos.Size = new Size(1082, 420);
+            dtgDatos.Size = new Size(947, 315);
             dtgDatos.TabIndex = 0;
             // 
             // lblRegistros
             // 
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(988, 512);
+            lblRegistros.Location = new Point(864, 384);
             lblRegistros.Name = "lblRegistros";
-            lblRegistros.Size = new Size(106, 33);
+            lblRegistros.Size = new Size(93, 25);
             lblRegistros.TabIndex = 1;
             lblRegistros.TextAlign = ContentAlignment.MiddleRight;
             lblRegistros.Click += label1_Click;
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(76, 21);
+            txtFiltro.Location = new Point(66, 16);
+            txtFiltro.Margin = new Padding(3, 2, 3, 2);
             txtFiltro.Name = "txtFiltro";
-            txtFiltro.Size = new Size(476, 27);
+            txtFiltro.Size = new Size(417, 23);
             txtFiltro.TabIndex = 2;
             txtFiltro.TextChanged += txtFiltro_TextChanged;
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(157, 511);
+            btnEditar.Location = new Point(137, 383);
+            btnEditar.Margin = new Padding(3, 2, 3, 2);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(120, 34);
+            btnEditar.Size = new Size(105, 26);
             btnEditar.TabIndex = 3;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
@@ -77,9 +80,10 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(12, 512);
+            btnAgregar.Location = new Point(10, 384);
+            btnAgregar.Margin = new Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(122, 33);
+            btnAgregar.Size = new Size(107, 25);
             btnAgregar.TabIndex = 4;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
@@ -87,9 +91,10 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(523, 512);
+            btnCerrar.Location = new Point(458, 384);
+            btnCerrar.Margin = new Padding(3, 2, 3, 2);
             btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(163, 35);
+            btnCerrar.Size = new Size(143, 26);
             btnCerrar.TabIndex = 5;
             btnCerrar.Text = "Cerrar";
             btnCerrar.UseVisualStyleBackColor = true;
@@ -98,17 +103,17 @@
             // lblInfo1
             // 
             lblInfo1.AutoSize = true;
-            lblInfo1.Location = new Point(20, 28);
+            lblInfo1.Location = new Point(18, 21);
             lblInfo1.Name = "lblInfo1";
-            lblInfo1.Size = new Size(50, 20);
+            lblInfo1.Size = new Size(40, 15);
             lblInfo1.TabIndex = 6;
             lblInfo1.Text = "Filtrar:";
             // 
             // ClienteMan01
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1112, 558);
+            ClientSize = new Size(973, 418);
             Controls.Add(lblInfo1);
             Controls.Add(btnCerrar);
             Controls.Add(btnAgregar);
@@ -117,6 +122,7 @@
             Controls.Add(lblRegistros);
             Controls.Add(dtgDatos);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "ClienteMan01";

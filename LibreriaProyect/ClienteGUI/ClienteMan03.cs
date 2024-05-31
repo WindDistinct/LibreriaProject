@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ClienteRenta_BE;
-using ClienteRenta_BL;
+using Libreria_BE;
+using Libreria_BL;
 
 namespace LibreriaProyect
 {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Libreria_ADO;
 using Libreria_BE;
 
-namespace Libreria_BE
+namespace Libreria_BL
 {
     public class AutorBL
     {
@@ -16,6 +16,10 @@ namespace Libreria_BE
         public DataTable ListarAutor()
         {
             return objAutorADO.ListarAutor();
+        }
+        public DataTable ListarAutorCompuesto()
+        {
+            return objAutorADO.ListarAutorCompuesto();
         }
 
         public AutorBE ConsultarAutor(String strCodigo)
