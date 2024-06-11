@@ -58,6 +58,7 @@
             // 
             // cboEditorial
             // 
+            cboEditorial.DropDownStyle = ComboBoxStyle.DropDownList;
             cboEditorial.FormattingEnabled = true;
             cboEditorial.Location = new Point(89, 159);
             cboEditorial.Name = "cboEditorial";
@@ -110,6 +111,7 @@
             // 
             // cboGenero
             // 
+            cboGenero.DropDownStyle = ComboBoxStyle.DropDownList;
             cboGenero.FormattingEnabled = true;
             cboGenero.Location = new Point(344, 72);
             cboGenero.Name = "cboGenero";
@@ -127,6 +129,7 @@
             // 
             // cboAutor
             // 
+            cboAutor.DropDownStyle = ComboBoxStyle.DropDownList;
             cboAutor.FormattingEnabled = true;
             cboAutor.Location = new Point(89, 72);
             cboAutor.Name = "cboAutor";

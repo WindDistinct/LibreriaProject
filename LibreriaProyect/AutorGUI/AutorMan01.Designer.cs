@@ -41,17 +41,19 @@
             // lblInfo1
             // 
             lblInfo1.AutoSize = true;
-            lblInfo1.Location = new Point(6, 9);
+            lblInfo1.Location = new Point(10, 21);
             lblInfo1.Name = "lblInfo1";
-            lblInfo1.Size = new Size(50, 20);
+            lblInfo1.Size = new Size(40, 15);
             lblInfo1.TabIndex = 13;
             lblInfo1.Text = "Filtrar:";
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(661, 494);
+            btnCerrar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnCerrar.Location = new Point(389, 397);
+            btnCerrar.Margin = new Padding(3, 2, 3, 2);
             btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(122, 35);
+            btnCerrar.Size = new Size(107, 26);
             btnCerrar.TabIndex = 12;
             btnCerrar.Text = "Cerrar";
             btnCerrar.UseVisualStyleBackColor = true;
@@ -59,9 +61,11 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(11, 494);
+            btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnAgregar.Location = new Point(10, 397);
+            btnAgregar.Margin = new Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(122, 33);
+            btnAgregar.Size = new Size(107, 25);
             btnAgregar.TabIndex = 11;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
@@ -69,9 +73,11 @@
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(209, 494);
+            btnEditar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnEditar.Location = new Point(149, 396);
+            btnEditar.Margin = new Padding(3, 2, 3, 2);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(122, 34);
+            btnEditar.Size = new Size(107, 26);
             btnEditar.TabIndex = 10;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
@@ -79,35 +85,51 @@
             // 
             // txtFiltro
             // 
-            txtFiltro.Location = new Point(62, 6);
+            txtFiltro.Location = new Point(62, 18);
+            txtFiltro.Margin = new Padding(3, 2, 3, 2);
             txtFiltro.Name = "txtFiltro";
-            txtFiltro.Size = new Size(476, 27);
+            txtFiltro.Size = new Size(417, 23);
             txtFiltro.TabIndex = 9;
             txtFiltro.TextChanged += txtFiltro_TextChanged;
             // 
             // lblRegistros
             // 
+            lblRegistros.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
-            lblRegistros.Location = new Point(966, 496);
+            lblRegistros.Location = new Point(843, 396);
             lblRegistros.Name = "lblRegistros";
-            lblRegistros.Size = new Size(122, 33);
+            lblRegistros.Size = new Size(107, 25);
             lblRegistros.TabIndex = 8;
             lblRegistros.TextAlign = ContentAlignment.MiddleRight;
             // 
             // dtgDatos
             // 
+            dtgDatos.AllowUserToAddRows = false;
+            dtgDatos.AllowUserToDeleteRows = false;
+            dtgDatos.AllowUserToOrderColumns = true;
+            dtgDatos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgDatos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dtgDatos.BorderStyle = BorderStyle.Fixed3D;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgDatos.Location = new Point(6, 51);
+            dtgDatos.Location = new Point(10, 58);
+            dtgDatos.Margin = new Padding(3, 2, 3, 2);
             dtgDatos.Name = "dtgDatos";
+            dtgDatos.ReadOnly = true;
             dtgDatos.RowHeadersWidth = 51;
-            dtgDatos.Size = new Size(1082, 420);
+            dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgDatos.ShowCellErrors = false;
+            dtgDatos.ShowCellToolTips = false;
+            dtgDatos.ShowEditingIcon = false;
+            dtgDatos.ShowRowErrors = false;
+            dtgDatos.Size = new Size(940, 325);
             dtgDatos.TabIndex = 7;
             // 
             // AutorMan01
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1100, 550);
+            ClientSize = new Size(962, 433);
             Controls.Add(lblInfo1);
             Controls.Add(btnCerrar);
             Controls.Add(btnAgregar);
@@ -116,11 +138,13 @@
             Controls.Add(lblRegistros);
             Controls.Add(dtgDatos);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "AutorMan01";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Mantenimiento de Autores";
+            WindowState = FormWindowState.Maximized;
             Load += AutorMan01_Load;
             ((System.ComponentModel.ISupportInitialize)dtgDatos).EndInit();
             ResumeLayout(false);

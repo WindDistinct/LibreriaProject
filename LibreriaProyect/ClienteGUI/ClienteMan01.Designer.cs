@@ -40,16 +40,26 @@
             // 
             // dtgDatos
             // 
+            dtgDatos.AllowUserToAddRows = false;
+            dtgDatos.AllowUserToDeleteRows = false;
+            dtgDatos.AllowUserToOrderColumns = true;
+            dtgDatos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgDatos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dtgDatos.BorderStyle = BorderStyle.Fixed3D;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgDatos.Location = new Point(10, 52);
             dtgDatos.Margin = new Padding(3, 2, 3, 2);
             dtgDatos.Name = "dtgDatos";
+            dtgDatos.ReadOnly = true;
             dtgDatos.RowHeadersWidth = 51;
+            dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgDatos.Size = new Size(947, 315);
             dtgDatos.TabIndex = 0;
             // 
             // lblRegistros
             // 
+            lblRegistros.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
             lblRegistros.Location = new Point(864, 384);
             lblRegistros.Name = "lblRegistros";
@@ -69,6 +79,7 @@
             // 
             // btnEditar
             // 
+            btnEditar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnEditar.Location = new Point(137, 383);
             btnEditar.Margin = new Padding(3, 2, 3, 2);
             btnEditar.Name = "btnEditar";
@@ -80,6 +91,7 @@
             // 
             // btnAgregar
             // 
+            btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnAgregar.Location = new Point(10, 384);
             btnAgregar.Margin = new Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
@@ -91,7 +103,8 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(458, 384);
+            btnCerrar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnCerrar.Location = new Point(454, 383);
             btnCerrar.Margin = new Padding(3, 2, 3, 2);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(143, 26);
@@ -128,6 +141,7 @@
             Name = "ClienteMan01";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Mantenimiento de Clientes";
+            WindowState = FormWindowState.Maximized;
             Load += ClienteMan01_Load;
             ((System.ComponentModel.ISupportInitialize)dtgDatos).EndInit();
             ResumeLayout(false);

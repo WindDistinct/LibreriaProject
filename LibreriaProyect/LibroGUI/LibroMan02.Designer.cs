@@ -103,6 +103,7 @@
             // 
             // cboAutor
             // 
+            cboAutor.DropDownStyle = ComboBoxStyle.DropDownList;
             cboAutor.FormattingEnabled = true;
             cboAutor.Location = new Point(104, 47);
             cboAutor.Name = "cboAutor";
@@ -120,6 +121,7 @@
             // 
             // cboGenero
             // 
+            cboGenero.DropDownStyle = ComboBoxStyle.DropDownList;
             cboGenero.FormattingEnabled = true;
             cboGenero.Location = new Point(359, 47);
             cboGenero.Name = "cboGenero";
@@ -138,11 +140,11 @@
             // lblFecPub
             // 
             lblFecPub.AutoSize = true;
-            lblFecPub.Location = new Point(29, 108);
+            lblFecPub.Location = new Point(27, 108);
             lblFecPub.Name = "lblFecPub";
-            lblFecPub.Size = new Size(122, 15);
+            lblFecPub.Size = new Size(113, 15);
             lblFecPub.TabIndex = 39;
-            lblFecPub.Text = "Fecha de publicación:";
+            lblFecPub.Text = "Año de publicación:";
             // 
             // txtStock
             // 
@@ -172,6 +174,7 @@
             // 
             // cboEditorial
             // 
+            cboEditorial.DropDownStyle = ComboBoxStyle.DropDownList;
             cboEditorial.FormattingEnabled = true;
             cboEditorial.Location = new Point(104, 134);
             cboEditorial.Name = "cboEditorial";
