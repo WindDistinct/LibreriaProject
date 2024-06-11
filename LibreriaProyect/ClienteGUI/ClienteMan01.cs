@@ -31,7 +31,7 @@ namespace LibreriaProyect
         private void CargarDatos(String strFiltro)
         {
             dtv = new DataView(objClienteBL.ListarCliente());
-            dtv.RowFilter = "cli_nom like '%" + strFiltro + "%'";
+            dtv.RowFilter = "Cliente like '%" + strFiltro + "%'";
             dtgDatos.DataSource = dtv;
             lblRegistros.Text = dtgDatos.Rows.Count.ToString();
         }
