@@ -1,4 +1,5 @@
 using Libreria_GUI;
+using Libreria_GUI.Libro;
 
 namespace LibreriaProyect
 {
