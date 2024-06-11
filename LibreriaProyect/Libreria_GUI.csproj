@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EPPlus" Version="7.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ClienteRenta_BE\Libreria_BE.csproj" />
     <ProjectReference Include="..\ClienteRenta_BL\Libreria_BL.csproj" />
   </ItemGroup>

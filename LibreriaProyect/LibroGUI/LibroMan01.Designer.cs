@@ -35,6 +35,8 @@
             btnAgregar = new Button();
             btnEditar = new Button();
             lblRegistros = new Label();
+            bkgDatos = new System.ComponentModel.BackgroundWorker();
+            btnImportar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
             SuspendLayout();
             // 
@@ -57,15 +59,29 @@
             // 
             // dgvDatos
             // 
+            dgvDatos.AllowUserToAddRows = false;
+            dgvDatos.AllowUserToDeleteRows = false;
+            dgvDatos.AllowUserToOrderColumns = true;
+            dgvDatos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDatos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvDatos.BorderStyle = BorderStyle.Fixed3D;
             dgvDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDatos.Location = new Point(10, 52);
             dgvDatos.Margin = new Padding(3, 2, 3, 2);
             dgvDatos.Name = "dgvDatos";
+            dgvDatos.ReadOnly = true;
+            dgvDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvDatos.ShowCellErrors = false;
+            dgvDatos.ShowCellToolTips = false;
+            dgvDatos.ShowEditingIcon = false;
+            dgvDatos.ShowRowErrors = false;
             dgvDatos.Size = new Size(947, 315);
             dgvDatos.TabIndex = 2;
             // 
             // btnCerrar
             // 
+            btnCerrar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnCerrar.Location = new Point(458, 382);
             btnCerrar.Margin = new Padding(3, 2, 3, 2);
             btnCerrar.Name = "btnCerrar";
@@ -77,6 +93,7 @@
             // 
             // btnAgregar
             // 
+            btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnAgregar.Location = new Point(10, 382);
             btnAgregar.Margin = new Padding(3, 2, 3, 2);
             btnAgregar.Name = "btnAgregar";
@@ -88,6 +105,7 @@
             // 
             // btnEditar
             // 
+            btnEditar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnEditar.Location = new Point(137, 381);
             btnEditar.Margin = new Padding(3, 2, 3, 2);
             btnEditar.Name = "btnEditar";
@@ -99,6 +117,7 @@
             // 
             // lblRegistros
             // 
+            lblRegistros.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
             lblRegistros.Location = new Point(864, 382);
             lblRegistros.Name = "lblRegistros";
@@ -106,11 +125,30 @@
             lblRegistros.TabIndex = 6;
             lblRegistros.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // bkgDatos
+            // 
+            bkgDatos.WorkerReportsProgress = true;
+            bkgDatos.WorkerSupportsCancellation = true;
+            bkgDatos.DoWork += bkgDatos_DoWork;
+            bkgDatos.RunWorkerCompleted += bkgDatos_RunWorkerCompleted;
+            // 
+            // btnImportar
+            // 
+            btnImportar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnImportar.Location = new Point(261, 380);
+            btnImportar.Name = "btnImportar";
+            btnImportar.Size = new Size(88, 27);
+            btnImportar.TabIndex = 10;
+            btnImportar.Text = "Importar";
+            btnImportar.UseVisualStyleBackColor = true;
+            btnImportar.Click += btnImportar_Click;
+            // 
             // LibroMan01
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(973, 418);
+            Controls.Add(btnImportar);
             Controls.Add(btnCerrar);
             Controls.Add(btnAgregar);
             Controls.Add(btnEditar);
@@ -140,5 +178,7 @@
         private Button btnAgregar;
         private Button btnEditar;
         private Label lblRegistros;
+        private System.ComponentModel.BackgroundWorker bkgDatos;
+        private Button btnImportar;
     }
 }
