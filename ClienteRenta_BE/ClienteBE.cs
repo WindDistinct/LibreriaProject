@@ -15,7 +15,7 @@ namespace Libreria_BE
         public String cli_tel { get; set; }
         public String cli_mail { get; set; }
         public String cli_dni { get; set; }
-        public Int16 ubg_id { get; set; }
+        public String ubg_id { get; set; }
         public DateTime cli_fec_nac { get; set; }
         public Char cli_sex { get; set; }
         public Byte[] cli_foto { get; set; }

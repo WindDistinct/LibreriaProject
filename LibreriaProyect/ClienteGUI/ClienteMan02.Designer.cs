@@ -35,7 +35,7 @@
             lblEmail = new Label();
             lblDni = new Label();
             lblUbi = new Label();
-            cboUbigeo = new ComboBox();
+            cboRegion = new ComboBox();
             lblFecNac = new Label();
             dtpFecNac = new DateTimePicker();
             groupBox1 = new GroupBox();
@@ -49,7 +49,18 @@
             txtTelefono = new TextBox();
             txtDni = new TextBox();
             txtEmail = new TextBox();
+            cboProvincia = new ComboBox();
+            cboDistrito = new ComboBox();
+            lblReg = new Label();
+            lblProv = new Label();
+            lblDist = new Label();
+            lblFoto = new Label();
+            btnCargarFoto = new Button();
+            pcbFoto = new PictureBox();
+            openFileDialog1 = new OpenFileDialog();
+            lblRuta = new Label();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pcbFoto).BeginInit();
             SuspendLayout();
             // 
             // lblNombre
@@ -115,18 +126,19 @@
             lblUbi.TabIndex = 6;
             lblUbi.Text = "Ubigeo:";
             // 
-            // cboUbigeo
+            // cboRegion
             // 
-            cboUbigeo.FormattingEnabled = true;
-            cboUbigeo.Location = new Point(119, 230);
-            cboUbigeo.Name = "cboUbigeo";
-            cboUbigeo.Size = new Size(308, 28);
-            cboUbigeo.TabIndex = 7;
+            cboRegion.FormattingEnabled = true;
+            cboRegion.Location = new Point(119, 261);
+            cboRegion.Name = "cboRegion";
+            cboRegion.Size = new Size(162, 28);
+            cboRegion.TabIndex = 7;
+            cboRegion.SelectionChangeCommitted += cboRegion_SelectionChangeCommitted;
             // 
             // lblFecNac
             // 
             lblFecNac.AutoSize = true;
-            lblFecNac.Location = new Point(31, 279);
+            lblFecNac.Location = new Point(31, 389);
             lblFecNac.Name = "lblFecNac";
             lblFecNac.Size = new Size(152, 20);
             lblFecNac.TabIndex = 8;
@@ -134,10 +146,11 @@
             // 
             // dtpFecNac
             // 
-            dtpFecNac.Location = new Point(203, 274);
+            dtpFecNac.Format = DateTimePickerFormat.Short;
+            dtpFecNac.Location = new Point(203, 384);
             dtpFecNac.MaxDate = new DateTime(2006, 6, 15, 0, 0, 0, 0);
             dtpFecNac.Name = "dtpFecNac";
-            dtpFecNac.Size = new Size(280, 27);
+            dtpFecNac.Size = new Size(107, 27);
             dtpFecNac.TabIndex = 9;
             dtpFecNac.Value = new DateTime(2006, 6, 1, 0, 0, 0, 0);
             // 
@@ -145,7 +158,7 @@
             // 
             groupBox1.Controls.Add(optMujer);
             groupBox1.Controls.Add(optHombre);
-            groupBox1.Location = new Point(31, 320);
+            groupBox1.Location = new Point(377, 384);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(250, 93);
             groupBox1.TabIndex = 10;
@@ -157,10 +170,10 @@
             optMujer.AutoSize = true;
             optMujer.Location = new Point(34, 56);
             optMujer.Name = "optMujer";
-            optMujer.Size = new Size(68, 24);
+            optMujer.Size = new Size(95, 24);
             optMujer.TabIndex = 1;
             optMujer.TabStop = true;
-            optMujer.Text = "Mujer";
+            optMujer.Text = "Femenino";
             optMujer.UseVisualStyleBackColor = true;
             // 
             // optHombre
@@ -168,15 +181,15 @@
             optHombre.AutoSize = true;
             optHombre.Location = new Point(34, 26);
             optHombre.Name = "optHombre";
-            optHombre.Size = new Size(85, 24);
+            optHombre.Size = new Size(97, 24);
             optHombre.TabIndex = 0;
             optHombre.TabStop = true;
-            optHombre.Text = "Hombre";
+            optHombre.Text = "Masculino";
             optHombre.UseVisualStyleBackColor = true;
             // 
             // btnGrabar
             // 
-            btnGrabar.Location = new Point(372, 378);
+            btnGrabar.Location = new Point(51, 442);
             btnGrabar.Name = "btnGrabar";
             btnGrabar.Size = new Size(111, 35);
             btnGrabar.TabIndex = 11;
@@ -186,7 +199,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(518, 378);
+            btnCancelar.Location = new Point(181, 442);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(109, 35);
             btnCancelar.TabIndex = 12;
@@ -240,11 +253,106 @@
             txtEmail.Size = new Size(508, 27);
             txtEmail.TabIndex = 18;
             // 
+            // cboProvincia
+            // 
+            cboProvincia.FormattingEnabled = true;
+            cboProvincia.Location = new Point(292, 261);
+            cboProvincia.Name = "cboProvincia";
+            cboProvincia.Size = new Size(162, 28);
+            cboProvincia.TabIndex = 19;
+            cboProvincia.SelectionChangeCommitted += cboProvincia_SelectionChangeCommitted;
+            // 
+            // cboDistrito
+            // 
+            cboDistrito.FormattingEnabled = true;
+            cboDistrito.Location = new Point(465, 261);
+            cboDistrito.Name = "cboDistrito";
+            cboDistrito.Size = new Size(162, 28);
+            cboDistrito.TabIndex = 20;
+            // 
+            // lblReg
+            // 
+            lblReg.AutoSize = true;
+            lblReg.Location = new Point(119, 238);
+            lblReg.Name = "lblReg";
+            lblReg.Size = new Size(59, 20);
+            lblReg.TabIndex = 21;
+            lblReg.Text = "Región:";
+            lblReg.Click += label1_Click;
+            // 
+            // lblProv
+            // 
+            lblProv.AutoSize = true;
+            lblProv.Location = new Point(292, 238);
+            lblProv.Name = "lblProv";
+            lblProv.Size = new Size(72, 20);
+            lblProv.TabIndex = 22;
+            lblProv.Text = "Provincia:";
+            // 
+            // lblDist
+            // 
+            lblDist.AutoSize = true;
+            lblDist.Location = new Point(465, 238);
+            lblDist.Name = "lblDist";
+            lblDist.Size = new Size(61, 20);
+            lblDist.TabIndex = 23;
+            lblDist.Text = "Distrito:";
+            // 
+            // lblFoto
+            // 
+            lblFoto.AutoSize = true;
+            lblFoto.Location = new Point(31, 330);
+            lblFoto.Name = "lblFoto";
+            lblFoto.Size = new Size(42, 20);
+            lblFoto.TabIndex = 24;
+            lblFoto.Text = "Foto:";
+            // 
+            // btnCargarFoto
+            // 
+            btnCargarFoto.Location = new Point(119, 326);
+            btnCargarFoto.Name = "btnCargarFoto";
+            btnCargarFoto.Size = new Size(191, 29);
+            btnCargarFoto.TabIndex = 25;
+            btnCargarFoto.Text = "Cargar Foto";
+            btnCargarFoto.UseVisualStyleBackColor = true;
+            btnCargarFoto.Click += btnCargarFoto_Click;
+            // 
+            // pcbFoto
+            // 
+            pcbFoto.Location = new Point(331, 313);
+            pcbFoto.Name = "pcbFoto";
+            pcbFoto.Size = new Size(60, 55);
+            pcbFoto.SizeMode = PictureBoxSizeMode.StretchImage;
+            pcbFoto.TabIndex = 26;
+            pcbFoto.TabStop = false;
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // lblRuta
+            // 
+            lblRuta.BorderStyle = BorderStyle.FixedSingle;
+            lblRuta.Location = new Point(416, 331);
+            lblRuta.Name = "lblRuta";
+            lblRuta.Size = new Size(211, 24);
+            lblRuta.TabIndex = 27;
+            lblRuta.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // ClienteMan02
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(658, 445);
+            ClientSize = new Size(658, 502);
+            Controls.Add(lblRuta);
+            Controls.Add(pcbFoto);
+            Controls.Add(btnCargarFoto);
+            Controls.Add(lblFoto);
+            Controls.Add(lblDist);
+            Controls.Add(lblProv);
+            Controls.Add(lblReg);
+            Controls.Add(cboDistrito);
+            Controls.Add(cboProvincia);
             Controls.Add(txtEmail);
             Controls.Add(txtDni);
             Controls.Add(txtTelefono);
@@ -256,7 +364,7 @@
             Controls.Add(groupBox1);
             Controls.Add(dtpFecNac);
             Controls.Add(lblFecNac);
-            Controls.Add(cboUbigeo);
+            Controls.Add(cboRegion);
             Controls.Add(lblUbi);
             Controls.Add(lblDni);
             Controls.Add(lblEmail);
@@ -273,6 +381,7 @@
             Load += ClienteMan02_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pcbFoto).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -286,7 +395,7 @@
         private Label lblEmail;
         private Label lblDni;
         private Label lblUbi;
-        private ComboBox cboUbigeo;
+        private ComboBox cboRegion;
         private Label lblFecNac;
         private DateTimePicker dtpFecNac;
         private GroupBox groupBox1;
@@ -300,5 +409,15 @@
         private TextBox txtTelefono;
         private TextBox txtDni;
         private TextBox txtEmail;
+        private ComboBox cboProvincia;
+        private ComboBox cboDistrito;
+        private Label lblReg;
+        private Label lblProv;
+        private Label lblDist;
+        private Label lblFoto;
+        private Button btnCargarFoto;
+        private PictureBox pcbFoto;
+        private OpenFileDialog openFileDialog1;
+        private Label lblRuta;
     }
 }

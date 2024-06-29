@@ -29,17 +29,6 @@ namespace LibreriaProyect
         {
             try
             {
-                DataTable dt = objUbigeoBL.ListarUbigeo();
-                DataRow dr;
-
-                dr = dt.NewRow();
-                dr["ubg_id"] = 0;
-                dr["ubg_desc"] = "--Seleccione--";
-                dt.Rows.InsertAt(dr, 0);
-                cboUbigeo.DataSource = dt;
-                cboUbigeo.ValueMember = "ubg_id";
-                cboUbigeo.DisplayMember = "ubg_desc";
-
                 objClienteBE = objClienteBL.ConsultarCliente(this.Codigo);
 
                 lblCodNum.Text = objClienteBE.cli_id.ToString();
@@ -49,7 +38,22 @@ namespace LibreriaProyect
                 txtTelefono.Text = objClienteBE.cli_tel;
                 txtDni.Text = objClienteBE.cli_dni;
                 txtEmail.Text = objClienteBE.cli_mail;
-                cboUbigeo.SelectedValue = objClienteBE.ubg_id.ToString();
+
+                String ubg_id = objClienteBE.ubg_id;
+                CargarUbigeo(ubg_id.Substring(0,2), ubg_id.Substring(2,2), ubg_id.Substring(4,2));
+
+                if (objClienteBE.cli_foto != null && objClienteBE.cli_foto.Length > 0)
+                {
+                    using (MemoryStream ms = new MemoryStream(objClienteBE.cli_foto))
+                    {
+                        pcbFoto.Image = Image.FromStream(ms);
+                    }
+                }
+                else
+                {
+                    pcbFoto.Image = null;
+                }
+
                 dtpFecNac.Value = objClienteBE.cli_fec_nac;
 
                 if (objClienteBE.cli_sex == 'H')
@@ -66,6 +70,54 @@ namespace LibreriaProyect
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        private void btnCargarFoto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                openFileDialog1.Multiselect = false;
+                openFileDialog1.FileName = "";
+                openFileDialog1.Filter = "Fotos (Solo jpg) | *.jpg";
+                openFileDialog1.ShowDialog();
+
+                lblRuta.Text = openFileDialog1.FileName;
+                pcbFoto.Image = Image.FromFile(openFileDialog1.FileName);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
+
+        private void CargarUbigeo(String IdReg, String IdProv, String IdDist)
+        {
+            UbigeoBL objUbigeoBL = new UbigeoBL();
+            cboRegion.DataSource = objUbigeoBL.Ubigeo_Region();
+            cboRegion.ValueMember = "ubg_reg_id";
+            cboRegion.DisplayMember = "ubg_reg";
+            cboRegion.SelectedValue = IdReg;
+
+            cboProvincia.DataSource = objUbigeoBL.Ubigeo_ProvinciasRegion(IdReg);
+            cboProvincia.ValueMember = "ubg_prov_id";
+            cboProvincia.DisplayMember = "ubg_prov";
+            cboProvincia.SelectedValue = IdProv;
+
+            cboDistrito.DataSource = objUbigeoBL.Ubigeo_DistritosProvinciaRegion(IdReg, IdProv);
+            cboDistrito.ValueMember = "ubg_dist_id";
+            cboDistrito.DisplayMember = "ubg_dist";
+            cboDistrito.SelectedValue = IdDist;
+        }
+
+        private void cboRegion_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            CargarUbigeo(cboRegion.SelectedValue.ToString(), "01", "01");
+        }
+
+        private void cboProvincia_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            CargarUbigeo(cboRegion.SelectedValue.ToString(), cboProvincia.SelectedValue.ToString(), "01");
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
@@ -96,10 +148,6 @@ namespace LibreriaProyect
                 {
                     throw new Exception("El correo electrónico es obligatorio.");
                 }
-                if (cboUbigeo.SelectedIndex == 0)
-                {
-                    throw new Exception("El ubigeo es obligatorio.");
-                }
 
                 objClienteBE.cli_id = Convert.ToInt16(lblCodNum.Text);
                 objClienteBE.cli_nom = txtNombre.Text.Trim();
@@ -122,8 +170,19 @@ namespace LibreriaProyect
                     throw new Exception("Debe seleecionar un sexo.");
                 }
 
-                objClienteBE.ubg_id = Convert.ToInt16(cboUbigeo.SelectedValue);
+                objClienteBE.ubg_id = cboRegion.SelectedValue.ToString() + cboProvincia.SelectedValue.ToString() + cboDistrito.SelectedValue.ToString();
                 objClienteBE.cli_fec_nac = Convert.ToDateTime(dtpFecNac.Value);
+
+                if (!string.IsNullOrEmpty(lblRuta.Text))
+                {
+                    using (FileStream fs = new FileStream(lblRuta.Text, FileMode.Open, FileAccess.Read))
+                    {
+                        using (BinaryReader br = new BinaryReader(fs))
+                        {
+                            objClienteBE.cli_foto = br.ReadBytes((int)fs.Length);
+                        }
+                    }
+                }
 
                 // Usuario Ingresado en Login
                 objClienteBE.cli_user_mod = "admin";

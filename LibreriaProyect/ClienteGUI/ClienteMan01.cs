@@ -31,7 +31,7 @@ namespace LibreriaProyect
         private void CargarDatos(String strFiltro)
         {
             dtv = new DataView(objClienteBL.ListarCliente());
-            dtv.RowFilter = "Cliente like '%" + strFiltro + "%'";
+            dtv.RowFilter = "Apellido like '%" + strFiltro + "%'";
             dtgDatos.DataSource = dtv;
             lblRegistros.Text = dtgDatos.Rows.Count.ToString();
         }
@@ -70,7 +70,7 @@ namespace LibreriaProyect
                 objClienteMan03.Codigo = strCodigo;
 
                 objClienteMan03.ShowDialog();
-
+                dtv = new DataView(objClienteBL.ListarCliente());
                 CargarDatos(txtFiltro.Text.Trim());
             }
             catch (Exception ex)

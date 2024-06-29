@@ -16,26 +16,70 @@ namespace Libreria_ADO
           SqlCommand cmd = new SqlCommand();
           SqlDataReader dtr;
 
-          public DataTable ListarUbigeo ()
+          public DataTable Ubigeo_Region ()
           {
             DataSet dts = new DataSet();
-            cnx.ConnectionString = MiConexion.GetCnx();
-            cmd.Connection = cnx;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "usp_ListarUbigeos";
+            
             try
             {
-
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "usp_Ubigeo_Region";
                 cmd.Parameters.Clear();
                 SqlDataAdapter ada = new SqlDataAdapter(cmd);
-                ada.Fill(dts, "Ubigeos");
-                return dts.Tables["Ubigeos"];
+                ada.Fill(dts, "Region");
+                return dts.Tables["Region"];
             }
             catch (SqlException ex)
             {
                 throw new Exception(ex.Message);
             }
           }
+        public DataTable Ubigeo_ProvinciasRegion(String strIdRegion)
+        {
+            DataSet dts = new DataSet();
+
+            try
+            {
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "usp_Ubigeo_ProvinciasRegion";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@IdRegion", strIdRegion);
+                SqlDataAdapter ada = new SqlDataAdapter(cmd);
+                ada.Fill(dts, "Provincias");
+                return dts.Tables["Provincias"];
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
+
+        public DataTable Ubigeo_DistritosProvinciaRegion(String strIdRegion, String strIdProvincia)
+        {
+            DataSet dts = new DataSet();
+
+            try
+            {
+                cnx.ConnectionString = MiConexion.GetCnx();
+                cmd.Connection = cnx;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "usp_Ubigeo_DistritosProvinciaRegion";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@IdRegion", strIdRegion);
+                cmd.Parameters.AddWithValue("@IdProvincia", strIdProvincia);
+                SqlDataAdapter ada = new SqlDataAdapter(cmd);
+                ada.Fill(dts, "Distritos");
+                return dts.Tables["Distritos"];
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+    }
     
 }

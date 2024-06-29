@@ -65,9 +65,19 @@ namespace Libreria_ADO
                     objClienteBE.cli_tel = dtr["cli_tel"].ToString();
                     objClienteBE.cli_mail = dtr["cli_mail"].ToString();
                     objClienteBE.cli_dni = dtr["cli_dni"].ToString();
-                    objClienteBE.ubg_id = Convert.ToInt16(dtr["ubg_id"]);
+                    objClienteBE.ubg_id = (dtr["ubg_id"]).ToString();
                     objClienteBE.cli_fec_nac = Convert.ToDateTime(dtr["cli_fec_nac"]);
                     objClienteBE.cli_sex = Convert.ToChar(dtr["cli_sex"]);
+
+                    if (dtr["cli_foto"] != DBNull.Value)
+                    {
+                        objClienteBE.cli_foto = (byte[])dtr["cli_foto"];
+                    }
+                    else
+                    {
+                        objClienteBE.cli_foto = null;
+                    }
+
                     objClienteBE.cli_user_reg = dtr["cli_user_reg"].ToString();
                 }
                 else
@@ -110,6 +120,7 @@ namespace Libreria_ADO
                 cmd.Parameters.AddWithValue("@ubg_id", objClienteBE.ubg_id);
                 cmd.Parameters.AddWithValue("@cli_fec_nac", objClienteBE.cli_fec_nac);
                 cmd.Parameters.AddWithValue("@cli_sex", objClienteBE.cli_sex);
+                cmd.Parameters.AddWithValue("@cli_foto", objClienteBE.cli_foto);
                 cmd.Parameters.AddWithValue("@cli_user_reg", objClienteBE.cli_user_reg);
 
                 cnx.Open();
@@ -152,6 +163,7 @@ namespace Libreria_ADO
                 cmd.Parameters.AddWithValue("@ubg_id", objClienteBE.ubg_id);
                 cmd.Parameters.AddWithValue("@cli_fec_nac", objClienteBE.cli_fec_nac);
                 cmd.Parameters.AddWithValue("@cli_sex", objClienteBE.cli_sex);
+                cmd.Parameters.AddWithValue("@cli_foto", objClienteBE.cli_foto);
                 cmd.Parameters.AddWithValue("@cli_user_mod", objClienteBE.cli_user_mod);
 
                 cnx.Open();

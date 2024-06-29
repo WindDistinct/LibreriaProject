@@ -41,8 +41,6 @@
             optHombre = new RadioButton();
             dtpFecNac = new DateTimePicker();
             lblFecNac = new Label();
-            cboUbigeo = new ComboBox();
-            lblUbi = new Label();
             lblDni = new Label();
             lblEmail = new Label();
             lblTel = new Label();
@@ -51,7 +49,20 @@
             lblNombre = new Label();
             lblCodigo = new Label();
             lblCodNum = new Label();
+            lblDist = new Label();
+            lblProv = new Label();
+            lblReg = new Label();
+            cboDistrito = new ComboBox();
+            cboProvincia = new ComboBox();
+            cboRegion = new ComboBox();
+            lblUbi = new Label();
+            lblRuta = new Label();
+            pcbFoto = new PictureBox();
+            btnCargarFoto = new Button();
+            lblFoto = new Label();
+            openFileDialog1 = new OpenFileDialog();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pcbFoto).BeginInit();
             SuspendLayout();
             // 
             // txtEmail
@@ -102,7 +113,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(508, 426);
+            btnCancelar.Location = new Point(193, 466);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(109, 35);
             btnCancelar.TabIndex = 31;
@@ -112,7 +123,7 @@
             // 
             // btnGrabar
             // 
-            btnGrabar.Location = new Point(362, 426);
+            btnGrabar.Location = new Point(57, 466);
             btnGrabar.Name = "btnGrabar";
             btnGrabar.Size = new Size(111, 35);
             btnGrabar.TabIndex = 30;
@@ -124,7 +135,7 @@
             // 
             groupBox1.Controls.Add(optMujer);
             groupBox1.Controls.Add(optHombre);
-            groupBox1.Location = new Point(21, 368);
+            groupBox1.Location = new Point(353, 408);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(250, 93);
             groupBox1.TabIndex = 29;
@@ -136,10 +147,10 @@
             optMujer.AutoSize = true;
             optMujer.Location = new Point(34, 56);
             optMujer.Name = "optMujer";
-            optMujer.Size = new Size(68, 24);
+            optMujer.Size = new Size(95, 24);
             optMujer.TabIndex = 1;
             optMujer.TabStop = true;
-            optMujer.Text = "Mujer";
+            optMujer.Text = "Femenino";
             optMujer.UseVisualStyleBackColor = true;
             // 
             // optHombre
@@ -147,46 +158,30 @@
             optHombre.AutoSize = true;
             optHombre.Location = new Point(34, 26);
             optHombre.Name = "optHombre";
-            optHombre.Size = new Size(85, 24);
+            optHombre.Size = new Size(97, 24);
             optHombre.TabIndex = 0;
             optHombre.TabStop = true;
-            optHombre.Text = "Hombre";
+            optHombre.Text = "Masculino";
             optHombre.UseVisualStyleBackColor = true;
             // 
             // dtpFecNac
             // 
-            dtpFecNac.Location = new Point(193, 322);
+            dtpFecNac.Format = DateTimePickerFormat.Short;
+            dtpFecNac.Location = new Point(193, 420);
             dtpFecNac.MaxDate = new DateTime(2006, 6, 15, 0, 0, 0, 0);
             dtpFecNac.Name = "dtpFecNac";
-            dtpFecNac.Size = new Size(280, 27);
+            dtpFecNac.Size = new Size(105, 27);
             dtpFecNac.TabIndex = 28;
             dtpFecNac.Value = new DateTime(2006, 6, 1, 0, 0, 0, 0);
             // 
             // lblFecNac
             // 
             lblFecNac.AutoSize = true;
-            lblFecNac.Location = new Point(21, 327);
+            lblFecNac.Location = new Point(21, 425);
             lblFecNac.Name = "lblFecNac";
             lblFecNac.Size = new Size(152, 20);
             lblFecNac.TabIndex = 27;
             lblFecNac.Text = "Fecha de Nacimiento:";
-            // 
-            // cboUbigeo
-            // 
-            cboUbigeo.FormattingEnabled = true;
-            cboUbigeo.Location = new Point(109, 278);
-            cboUbigeo.Name = "cboUbigeo";
-            cboUbigeo.Size = new Size(308, 28);
-            cboUbigeo.TabIndex = 26;
-            // 
-            // lblUbi
-            // 
-            lblUbi.AutoSize = true;
-            lblUbi.Location = new Point(21, 286);
-            lblUbi.Name = "lblUbi";
-            lblUbi.Size = new Size(61, 20);
-            lblUbi.TabIndex = 25;
-            lblUbi.Text = "Ubigeo:";
             // 
             // lblDni
             // 
@@ -259,11 +254,125 @@
             lblCodNum.Size = new Size(58, 32);
             lblCodNum.TabIndex = 39;
             // 
+            // lblDist
+            // 
+            lblDist.AutoSize = true;
+            lblDist.Location = new Point(455, 284);
+            lblDist.Name = "lblDist";
+            lblDist.Size = new Size(61, 20);
+            lblDist.TabIndex = 46;
+            lblDist.Text = "Distrito:";
+            // 
+            // lblProv
+            // 
+            lblProv.AutoSize = true;
+            lblProv.Location = new Point(282, 284);
+            lblProv.Name = "lblProv";
+            lblProv.Size = new Size(72, 20);
+            lblProv.TabIndex = 45;
+            lblProv.Text = "Provincia:";
+            // 
+            // lblReg
+            // 
+            lblReg.AutoSize = true;
+            lblReg.Location = new Point(109, 284);
+            lblReg.Name = "lblReg";
+            lblReg.Size = new Size(59, 20);
+            lblReg.TabIndex = 44;
+            lblReg.Text = "Región:";
+            // 
+            // cboDistrito
+            // 
+            cboDistrito.FormattingEnabled = true;
+            cboDistrito.Location = new Point(455, 307);
+            cboDistrito.Name = "cboDistrito";
+            cboDistrito.Size = new Size(162, 28);
+            cboDistrito.TabIndex = 43;
+            // 
+            // cboProvincia
+            // 
+            cboProvincia.FormattingEnabled = true;
+            cboProvincia.Location = new Point(282, 307);
+            cboProvincia.Name = "cboProvincia";
+            cboProvincia.Size = new Size(162, 28);
+            cboProvincia.TabIndex = 42;
+            cboProvincia.SelectionChangeCommitted += cboProvincia_SelectionChangeCommitted;
+            // 
+            // cboRegion
+            // 
+            cboRegion.FormattingEnabled = true;
+            cboRegion.Location = new Point(109, 307);
+            cboRegion.Name = "cboRegion";
+            cboRegion.Size = new Size(162, 28);
+            cboRegion.TabIndex = 41;
+            cboRegion.SelectionChangeCommitted += cboRegion_SelectionChangeCommitted;
+            // 
+            // lblUbi
+            // 
+            lblUbi.AutoSize = true;
+            lblUbi.Location = new Point(21, 284);
+            lblUbi.Name = "lblUbi";
+            lblUbi.Size = new Size(61, 20);
+            lblUbi.TabIndex = 40;
+            lblUbi.Text = "Ubigeo:";
+            // 
+            // lblRuta
+            // 
+            lblRuta.BorderStyle = BorderStyle.FixedSingle;
+            lblRuta.Location = new Point(406, 365);
+            lblRuta.Name = "lblRuta";
+            lblRuta.Size = new Size(211, 24);
+            lblRuta.TabIndex = 50;
+            lblRuta.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pcbFoto
+            // 
+            pcbFoto.Location = new Point(321, 347);
+            pcbFoto.Name = "pcbFoto";
+            pcbFoto.Size = new Size(60, 55);
+            pcbFoto.SizeMode = PictureBoxSizeMode.StretchImage;
+            pcbFoto.TabIndex = 49;
+            pcbFoto.TabStop = false;
+            // 
+            // btnCargarFoto
+            // 
+            btnCargarFoto.Location = new Point(109, 360);
+            btnCargarFoto.Name = "btnCargarFoto";
+            btnCargarFoto.Size = new Size(191, 29);
+            btnCargarFoto.TabIndex = 48;
+            btnCargarFoto.Text = "Cargar Foto";
+            btnCargarFoto.UseVisualStyleBackColor = true;
+            btnCargarFoto.Click += btnCargarFoto_Click;
+            // 
+            // lblFoto
+            // 
+            lblFoto.AutoSize = true;
+            lblFoto.Location = new Point(21, 364);
+            lblFoto.Name = "lblFoto";
+            lblFoto.Size = new Size(42, 20);
+            lblFoto.TabIndex = 47;
+            lblFoto.Text = "Foto:";
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
             // ClienteMan03
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(646, 499);
+            ClientSize = new Size(646, 554);
+            Controls.Add(lblRuta);
+            Controls.Add(pcbFoto);
+            Controls.Add(btnCargarFoto);
+            Controls.Add(lblFoto);
+            Controls.Add(lblDist);
+            Controls.Add(lblProv);
+            Controls.Add(lblReg);
+            Controls.Add(cboDistrito);
+            Controls.Add(cboProvincia);
+            Controls.Add(cboRegion);
+            Controls.Add(lblUbi);
             Controls.Add(lblCodNum);
             Controls.Add(lblCodigo);
             Controls.Add(txtEmail);
@@ -277,8 +386,6 @@
             Controls.Add(groupBox1);
             Controls.Add(dtpFecNac);
             Controls.Add(lblFecNac);
-            Controls.Add(cboUbigeo);
-            Controls.Add(lblUbi);
             Controls.Add(lblDni);
             Controls.Add(lblEmail);
             Controls.Add(lblTel);
@@ -293,6 +400,7 @@
             Load += ClienteMan03_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pcbFoto).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -312,8 +420,6 @@
         private RadioButton optHombre;
         private DateTimePicker dtpFecNac;
         private Label lblFecNac;
-        private ComboBox cboUbigeo;
-        private Label lblUbi;
         private Label lblDni;
         private Label lblEmail;
         private Label lblTel;
@@ -322,5 +428,17 @@
         private Label lblNombre;
         private Label lblCodigo;
         private Label lblCodNum;
+        private Label lblDist;
+        private Label lblProv;
+        private Label lblReg;
+        private ComboBox cboDistrito;
+        private ComboBox cboProvincia;
+        private ComboBox cboRegion;
+        private Label lblUbi;
+        private Label lblRuta;
+        private PictureBox pcbFoto;
+        private Button btnCargarFoto;
+        private Label lblFoto;
+        private OpenFileDialog openFileDialog1;
     }
 }

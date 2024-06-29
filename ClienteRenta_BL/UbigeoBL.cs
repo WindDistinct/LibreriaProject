@@ -13,9 +13,17 @@ namespace Libreria_BL
     {
         UbigeoADO objUbigeoADO = new UbigeoADO();
 
-        public DataTable ListarUbigeo()
+        public DataTable Ubigeo_Region()
         {
-            return objUbigeoADO.ListarUbigeo();
+            return objUbigeoADO.Ubigeo_Region();
+        }
+        public DataTable Ubigeo_ProvinciasRegion(String strIdRegion)
+        {
+            return objUbigeoADO.Ubigeo_ProvinciasRegion(strIdRegion);
+        }
+        public DataTable Ubigeo_DistritosProvinciaRegion(String strIdRegion, String strIdProvincia)
+        {
+            return objUbigeoADO.Ubigeo_DistritosProvinciaRegion(strIdRegion, strIdProvincia);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Libreria_BE
         public String per_ape_pat { get; set; }
         public String per_ape_mat { get; set; }
         public String per_dir { get; set; }
-        public Int16 ubg_id { get; set; }
+        public String ubg_id { get; set; }
         public String per_tel { get; set; }
         public String per_dni { get; set; }
         public String per_mail { get; set; }
