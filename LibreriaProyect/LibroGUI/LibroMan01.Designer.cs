@@ -63,8 +63,8 @@
             dgvDatos.AllowUserToDeleteRows = false;
             dgvDatos.AllowUserToOrderColumns = true;
             dgvDatos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvDatos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dgvDatos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
             dgvDatos.BorderStyle = BorderStyle.Fixed3D;
             dgvDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDatos.Location = new Point(10, 52);

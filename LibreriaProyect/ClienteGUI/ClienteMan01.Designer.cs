@@ -44,7 +44,7 @@
             dtgDatos.AllowUserToDeleteRows = false;
             dtgDatos.AllowUserToOrderColumns = true;
             dtgDatos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dtgDatos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dtgDatos.BorderStyle = BorderStyle.Fixed3D;
             dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
