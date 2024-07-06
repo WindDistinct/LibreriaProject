@@ -28,16 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             Filtro = new Label();
             txtBuscador = new TextBox();
-            dgvDatos = new DataGridView();
+            dtgDatos = new DataGridView();
+            lib_id = new DataGridViewTextBoxColumn();
+            Libro = new DataGridViewTextBoxColumn();
+            Autor = new DataGridViewTextBoxColumn();
+            Genero = new DataGridViewTextBoxColumn();
+            Edicion = new DataGridViewTextBoxColumn();
+            Ano_de_publicacion = new DataGridViewTextBoxColumn();
+            Stock = new DataGridViewTextBoxColumn();
+            Editorial = new DataGridViewTextBoxColumn();
             btnCerrar = new Button();
             btnAgregar = new Button();
             btnEditar = new Button();
             lblRegistros = new Label();
             bkgDatos = new System.ComponentModel.BackgroundWorker();
             btnImportar = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtgDatos).BeginInit();
             SuspendLayout();
             // 
             // Filtro
@@ -57,27 +66,100 @@
             txtBuscador.TabIndex = 1;
             txtBuscador.TextChanged += txtFiltro_TextChanged;
             // 
-            // dgvDatos
+            // dtgDatos
             // 
-            dgvDatos.AllowUserToAddRows = false;
-            dgvDatos.AllowUserToDeleteRows = false;
-            dgvDatos.AllowUserToOrderColumns = true;
-            dgvDatos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dgvDatos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dgvDatos.BorderStyle = BorderStyle.Fixed3D;
-            dgvDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDatos.Location = new Point(10, 52);
-            dgvDatos.Margin = new Padding(3, 2, 3, 2);
-            dgvDatos.Name = "dgvDatos";
-            dgvDatos.ReadOnly = true;
-            dgvDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDatos.ShowCellErrors = false;
-            dgvDatos.ShowCellToolTips = false;
-            dgvDatos.ShowEditingIcon = false;
-            dgvDatos.ShowRowErrors = false;
-            dgvDatos.Size = new Size(947, 315);
-            dgvDatos.TabIndex = 2;
+            dtgDatos.AllowUserToAddRows = false;
+            dtgDatos.AllowUserToDeleteRows = false;
+            dtgDatos.AllowUserToOrderColumns = true;
+            dtgDatos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dtgDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgDatos.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+            dtgDatos.BackgroundColor = SystemColors.ControlLight;
+            dtgDatos.BorderStyle = BorderStyle.Fixed3D;
+            dtgDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgDatos.Columns.AddRange(new DataGridViewColumn[] { lib_id, Libro, Autor, Genero, Edicion, Ano_de_publicacion, Stock, Editorial });
+            dtgDatos.Location = new Point(10, 52);
+            dtgDatos.Margin = new Padding(3, 2, 3, 2);
+            dtgDatos.MultiSelect = false;
+            dtgDatos.Name = "dtgDatos";
+            dtgDatos.ReadOnly = true;
+            dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgDatos.ShowCellErrors = false;
+            dtgDatos.ShowCellToolTips = false;
+            dtgDatos.ShowEditingIcon = false;
+            dtgDatos.ShowRowErrors = false;
+            dtgDatos.Size = new Size(947, 315);
+            dtgDatos.TabIndex = 2;
+            // 
+            // lib_id
+            // 
+            lib_id.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            lib_id.DataPropertyName = "lib_id";
+            lib_id.HeaderText = "ID";
+            lib_id.Name = "lib_id";
+            lib_id.ReadOnly = true;
+            lib_id.Width = 43;
+            // 
+            // Libro
+            // 
+            Libro.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Libro.DataPropertyName = "Libro";
+            Libro.HeaderText = "Libro";
+            Libro.Name = "Libro";
+            Libro.ReadOnly = true;
+            // 
+            // Autor
+            // 
+            Autor.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Autor.DataPropertyName = "Autor";
+            Autor.HeaderText = "Autor";
+            Autor.Name = "Autor";
+            Autor.ReadOnly = true;
+            // 
+            // Genero
+            // 
+            Genero.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Genero.DataPropertyName = "Genero";
+            Genero.HeaderText = "Género";
+            Genero.Name = "Genero";
+            Genero.ReadOnly = true;
+            // 
+            // Edicion
+            // 
+            Edicion.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Edicion.DataPropertyName = "Edicion";
+            Edicion.HeaderText = "Edición";
+            Edicion.Name = "Edicion";
+            Edicion.ReadOnly = true;
+            // 
+            // Ano_de_publicacion
+            // 
+            Ano_de_publicacion.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            Ano_de_publicacion.DataPropertyName = "Ano_de_publicacion";
+            Ano_de_publicacion.HeaderText = "Año de publicación";
+            Ano_de_publicacion.Name = "Ano_de_publicacion";
+            Ano_de_publicacion.ReadOnly = true;
+            Ano_de_publicacion.Width = 124;
+            // 
+            // Stock
+            // 
+            Stock.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            Stock.DataPropertyName = "Stock";
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = "0";
+            Stock.DefaultCellStyle = dataGridViewCellStyle2;
+            Stock.HeaderText = "Stock";
+            Stock.Name = "Stock";
+            Stock.ReadOnly = true;
+            Stock.Width = 61;
+            // 
+            // Editorial
+            // 
+            Editorial.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Editorial.DataPropertyName = "Editorial";
+            Editorial.HeaderText = "Editorial";
+            Editorial.Name = "Editorial";
+            Editorial.ReadOnly = true;
             // 
             // btnCerrar
             // 
@@ -117,7 +199,7 @@
             // 
             // lblRegistros
             // 
-            lblRegistros.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblRegistros.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lblRegistros.BorderStyle = BorderStyle.FixedSingle;
             lblRegistros.Location = new Point(864, 382);
             lblRegistros.Name = "lblRegistros";
@@ -153,7 +235,7 @@
             Controls.Add(btnAgregar);
             Controls.Add(btnEditar);
             Controls.Add(lblRegistros);
-            Controls.Add(dgvDatos);
+            Controls.Add(dtgDatos);
             Controls.Add(txtBuscador);
             Controls.Add(Filtro);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -164,7 +246,7 @@
             Text = "LibroMan01";
             WindowState = FormWindowState.Maximized;
             Load += LibroMan01_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvDatos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtgDatos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -173,12 +255,20 @@
 
         private Label Filtro;
         private TextBox txtBuscador;
-        private DataGridView dgvDatos;
+        private DataGridView dtgDatos;
         private Button btnCerrar;
         private Button btnAgregar;
         private Button btnEditar;
         private Label lblRegistros;
         private System.ComponentModel.BackgroundWorker bkgDatos;
         private Button btnImportar;
+        private DataGridViewTextBoxColumn lib_id;
+        private DataGridViewTextBoxColumn Libro;
+        private DataGridViewTextBoxColumn Autor;
+        private DataGridViewTextBoxColumn Genero;
+        private DataGridViewTextBoxColumn Edicion;
+        private DataGridViewTextBoxColumn Ano_de_publicacion;
+        private DataGridViewTextBoxColumn Stock;
+        private DataGridViewTextBoxColumn Editorial;
     }
 }

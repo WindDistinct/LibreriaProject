@@ -28,6 +28,7 @@ namespace Libreria_GUI.Libro
 
         private void LibroMan01_Load(object sender, EventArgs e)
         {
+            dtgDatos.AutoGenerateColumns = false;
             CargarDatos("");
         }
 
@@ -35,8 +36,8 @@ namespace Libreria_GUI.Libro
         {
             dtv = new DataView(objLibroBL.ListarLibro());
             dtv.RowFilter = "Libro like '%" + strFiltro + "%'";
-            dgvDatos.DataSource = dtv;
-            lblRegistros.Text = dgvDatos.Rows.Count.ToString();
+            dtgDatos.DataSource = dtv;
+            lblRegistros.Text = dtgDatos.Rows.Count.ToString();
         }
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
@@ -69,7 +70,7 @@ namespace Libreria_GUI.Libro
             try
             {
                 LibroMan03 objLibroMan03 = new LibroMan03();
-                String strCodigo = dgvDatos.CurrentRow.Cells[0].Value.ToString();
+                String strCodigo = dtgDatos.CurrentRow.Cells[0].Value.ToString();
                 objLibroMan03.Codigo = strCodigo;
 
                 objLibroMan03.ShowDialog();
@@ -121,55 +122,78 @@ namespace Libreria_GUI.Libro
             ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
             try
             {
-                String ruta = @"C:\ExcelTest\ListadoLibros.xlsx";
+                string relativePath = @"Documentos\ListadoLibros.xlsx";
+                string basePath = AppDomain.CurrentDomain.BaseDirectory;
+                string ruta = Path.Combine(basePath, relativePath);
+
+                // Debug: Check paths
+                MessageBox.Show($"Base Path: {basePath}\nRelative Path: {relativePath}\nFull Path: {ruta}", "Debug Info");
+
+                if (!File.Exists(ruta))
+                {
+                    MessageBox.Show($"File not found: {ruta}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 DataTable dtLibros = (DataTable)e.Result;
                 Int16 fila1 = 5;
 
                 using (var pck = new ExcelPackage(new FileInfo(ruta)))
                 {
                     ExcelWorksheet ws = pck.Workbook.Worksheets["Hoja1"];
-                    foreach (DataRow drLibro in dtLibros.Rows) {
-                        ws.Cells[fila1,1].Value = drLibro["lib_id"].ToString();
-                        ws.Cells[fila1, 2].Value = drLibro["lib_nom"].ToString();
-                        ws.Cells[fila1, 3].Value = drLibro["aut_id"].ToString();
-                        ws.Cells[fila1, 4].Value = drLibro["gen_id"].ToString();
-                        ws.Cells[fila1, 5].Value = drLibro["lib_edi"].ToString();
-                        ws.Cells[fila1, 6].Value = drLibro["lib_fec_pub"].ToString();
-                        ws.Cells[fila1, 7].Value = drLibro["lib_disp_stock"].ToString();
-                        ws.Cells[fila1, 8].Value = drLibro["edi_id"].ToString();
-                        ws.Cells[fila1, 9].Value = drLibro["lib_user_reg"].ToString();
-                        ws.Cells[fila1, 10].Value = drLibro["lib_fec_reg"].ToString();
-                        ws.Cells[fila1, 11].Value = drLibro["lib_user_mod"].ToString();
-                        ws.Cells[fila1, 12].Value = drLibro["lib_fec_mod"].ToString();
-                        ws.Cells[fila1, 13].Value = drLibro["lib_state"].ToString();
+                    if (ws == null)
+                    {
+                        MessageBox.Show("Worksheet 'Hoja1' not found in the Excel file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    foreach (DataRow drLibro in dtLibros.Rows)
+                    {
+                        ws.Cells[fila1, 1].Value = drLibro["lib_id"].ToString();
+                        ws.Cells[fila1, 2].Value = drLibro["Libro"].ToString();
+                        ws.Cells[fila1, 3].Value = drLibro["Autor"].ToString();
+                        ws.Cells[fila1, 4].Value = drLibro["Genero"].ToString();
+                        ws.Cells[fila1, 5].Value = drLibro["Edicion"].ToString();
+                        ws.Cells[fila1, 6].Value = drLibro["Ano_de_publicacion"].ToString();
+                        ws.Cells[fila1, 7].Value = drLibro["Stock"].ToString();
+                        ws.Cells[fila1, 8].Value = drLibro["Editorial"].ToString();
+                        ws.Cells[fila1, 9].Value = drLibro["Creado_por"].ToString();
+                        ws.Cells[fila1, 10].Value = drLibro["Creado_el"].ToString();
+                        ws.Cells[fila1, 11].Value = drLibro["Modificado_por"].ToString();
+                        ws.Cells[fila1, 12].Value = drLibro["Modificado_el"].ToString();
+                        ws.Cells[fila1, 13].Value = drLibro["Estado"].ToString();
                         fila1 += 1;
                     }
 
-                    ws.Column(1).Width = 10;
-                    ws.Column(2).Width = 50;
-                    ws.Column(3).Width = 10;
-                    ws.Column(4).Width = 10;
-                    ws.Column(5).Width = 90;
-                    ws.Column(6).Width = 30;
-                    ws.Column(7).Width = 30;
-                    ws.Column(8).Width = 30;
-                    ws.Column(9).Width = 30;
-                    ws.Column(10).Width = 30;
-                    ws.Column(11).Width = 30;
-                    ws.Column(12).Width = 30;
-                    ws.Column(13).Width = 30;
-                    String filename = "ListadoLibros_test.xlsx";
+                    ws.Column(1).Width = 5;
+                    ws.Column(2).Width = 30;
+                    ws.Column(3).Width = 30;
+                    ws.Column(4).Width = 15;
+                    ws.Column(5).Width = 20;
+                    ws.Column(6).Width = 10;
+                    ws.Column(7).Width = 5;
+                    ws.Column(8).Width = 20;
+                    ws.Column(9).Width = 20;
+                    ws.Column(10).Width = 10;
+                    ws.Column(11).Width = 20;
+                    ws.Column(12).Width = 10;
+                    ws.Column(13).Width = 5;
+
+                    String filename = "ListadoLibros_" + DateTime.Now.Date.ToString("dd-MM-yy") + ".xlsx";
                     FileStream fs = new FileStream(@"C:\ExcelTest\" + filename, FileMode.Create);
                     pck.SaveAs(fs);
 
                     pck.Dispose();
                     fs.Dispose();
 
-                    MessageBox.Show("El archivo: " + filename + "se ha generado con éxito", "Mensaje", 
-                        MessageBoxButtons.OK,MessageBoxIcon.Information );
+                    MessageBox.Show("El archivo: " + filename + " se ha generado con éxito", "Mensaje",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

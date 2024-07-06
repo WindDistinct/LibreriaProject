@@ -25,6 +25,7 @@ namespace LibreriaProyect
 
         private void ClienteMan01_Load(object sender, EventArgs e)
         {
+            dtgDatos.AutoGenerateColumns = false;
             CargarDatos("");
         }
 

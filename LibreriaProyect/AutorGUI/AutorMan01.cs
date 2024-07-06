@@ -22,6 +22,7 @@ namespace Libreria_GUI
 
         private void AutorMan01_Load(object sender, EventArgs e)
         {
+            dtgDatos.AutoGenerateColumns = false;
             CargarDatos("");
         }
         private void CargarDatos(String strFiltro)
