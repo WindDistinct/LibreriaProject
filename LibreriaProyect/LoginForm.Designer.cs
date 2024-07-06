@@ -61,7 +61,7 @@
             // 
             // btnIngresar
             // 
-            btnIngresar.Location = new Point(88, 159);
+            btnIngresar.Location = new Point(96, 161);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(75, 23);
             btnIngresar.TabIndex = 4;
@@ -80,6 +80,7 @@
             // 
             // Login
             // 
+            AcceptButton = btnIngresar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(279, 218);
@@ -90,6 +91,7 @@
             Controls.Add(txtUser);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";

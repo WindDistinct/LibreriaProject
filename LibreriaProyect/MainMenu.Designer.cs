@@ -43,12 +43,16 @@
             panelDeUsuarioToolStripMenuItem = new ToolStripMenuItem();
             smiPerfil = new ToolStripMenuItem();
             smiEmpleados = new ToolStripMenuItem();
+            smiMantenimientos = new ToolStripMenuItem();
+            autoresToolStripMenuItem = new ToolStripMenuItem();
+            librosToolStripMenuItem = new ToolStripMenuItem();
+            clientesToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { inventarioToolStripMenuItem, pedidosToolStripMenuItem, reabastecimientoToolStripMenuItem, panelDeUsuarioToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { smiMantenimientos, pedidosToolStripMenuItem, reabastecimientoToolStripMenuItem, panelDeUsuarioToolStripMenuItem, inventarioToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -99,14 +103,14 @@
             // smiClientes
             // 
             smiClientes.Name = "smiClientes";
-            smiClientes.Size = new Size(116, 22);
+            smiClientes.Size = new Size(180, 22);
             smiClientes.Text = "Clientes";
             smiClientes.Click += smiClientes_Click;
             // 
             // smiRentas
             // 
             smiRentas.Name = "smiRentas";
-            smiRentas.Size = new Size(116, 22);
+            smiRentas.Size = new Size(180, 22);
             smiRentas.Text = "Rentas";
             // 
             // reabastecimientoToolStripMenuItem
@@ -119,13 +123,13 @@
             // smiEditoriales
             // 
             smiEditoriales.Name = "smiEditoriales";
-            smiEditoriales.Size = new Size(180, 22);
+            smiEditoriales.Size = new Size(157, 22);
             smiEditoriales.Text = "Editoriales";
             // 
             // smiRequerimientos
             // 
             smiRequerimientos.Name = "smiRequerimientos";
-            smiRequerimientos.Size = new Size(180, 22);
+            smiRequerimientos.Size = new Size(157, 22);
             smiRequerimientos.Text = "Requerimientos";
             // 
             // panelDeUsuarioToolStripMenuItem
@@ -138,19 +142,49 @@
             // smiPerfil
             // 
             smiPerfil.Name = "smiPerfil";
-            smiPerfil.Size = new Size(180, 22);
+            smiPerfil.Size = new Size(132, 22);
             smiPerfil.Text = "Perfil";
             // 
             // smiEmpleados
             // 
             smiEmpleados.Name = "smiEmpleados";
-            smiEmpleados.Size = new Size(180, 22);
+            smiEmpleados.Size = new Size(132, 22);
             smiEmpleados.Text = "Empleados";
+            // 
+            // smiMantenimientos
+            // 
+            smiMantenimientos.DropDownItems.AddRange(new ToolStripItem[] { autoresToolStripMenuItem, librosToolStripMenuItem, clientesToolStripMenuItem });
+            smiMantenimientos.Name = "smiMantenimientos";
+            smiMantenimientos.Size = new Size(106, 20);
+            smiMantenimientos.Text = "Mantenimientos";
+            // 
+            // autoresToolStripMenuItem
+            // 
+            autoresToolStripMenuItem.Name = "autoresToolStripMenuItem";
+            autoresToolStripMenuItem.Size = new Size(180, 22);
+            autoresToolStripMenuItem.Text = "Autores";
+            autoresToolStripMenuItem.Click += smiAutores_Click;
+            // 
+            // librosToolStripMenuItem
+            // 
+            librosToolStripMenuItem.Name = "librosToolStripMenuItem";
+            librosToolStripMenuItem.Size = new Size(180, 22);
+            librosToolStripMenuItem.Text = "Libros";
+            librosToolStripMenuItem.Click += smiLibros_Click;
+            // 
+            // clientesToolStripMenuItem
+            // 
+            clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            clientesToolStripMenuItem.Size = new Size(180, 22);
+            clientesToolStripMenuItem.Text = "Clientes";
+            clientesToolStripMenuItem.Click += smiClientes_Click;
             // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.libreria;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
@@ -158,6 +192,7 @@
             Name = "MainMenu";
             Text = "Menu Principal";
             WindowState = FormWindowState.Maximized;
+            FormClosed += MainMenu_FormClosed;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -181,5 +216,9 @@
         private ToolStripMenuItem panelDeUsuarioToolStripMenuItem;
         private ToolStripMenuItem smiPerfil;
         private ToolStripMenuItem smiEmpleados;
+        private ToolStripMenuItem smiMantenimientos;
+        private ToolStripMenuItem autoresToolStripMenuItem;
+        private ToolStripMenuItem librosToolStripMenuItem;
+        private ToolStripMenuItem clientesToolStripMenuItem;
     }
 }
