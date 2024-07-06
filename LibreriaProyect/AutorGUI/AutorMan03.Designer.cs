@@ -38,6 +38,12 @@
             lblNombre = new Label();
             lblCodNum = new Label();
             lblCodigo = new Label();
+            lblRuta = new Label();
+            pcbFoto = new PictureBox();
+            btnCargarFoto = new Button();
+            lblFoto = new Label();
+            openFileDialog1 = new OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)pcbFoto).BeginInit();
             SuspendLayout();
             // 
             // btnCancelar
@@ -125,11 +131,56 @@
             lblCodigo.TabIndex = 40;
             lblCodigo.Text = "Código:";
             // 
+            // lblRuta
+            // 
+            lblRuta.BorderStyle = BorderStyle.FixedSingle;
+            lblRuta.Location = new Point(412, 208);
+            lblRuta.Name = "lblRuta";
+            lblRuta.Size = new Size(211, 24);
+            lblRuta.TabIndex = 45;
+            lblRuta.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pcbFoto
+            // 
+            pcbFoto.Location = new Point(327, 190);
+            pcbFoto.Name = "pcbFoto";
+            pcbFoto.Size = new Size(60, 55);
+            pcbFoto.SizeMode = PictureBoxSizeMode.StretchImage;
+            pcbFoto.TabIndex = 44;
+            pcbFoto.TabStop = false;
+            // 
+            // btnCargarFoto
+            // 
+            btnCargarFoto.Location = new Point(115, 203);
+            btnCargarFoto.Name = "btnCargarFoto";
+            btnCargarFoto.Size = new Size(191, 29);
+            btnCargarFoto.TabIndex = 43;
+            btnCargarFoto.Text = "Cargar Foto";
+            btnCargarFoto.UseVisualStyleBackColor = true;
+            btnCargarFoto.Click += btnCargarFoto_Click;
+            // 
+            // lblFoto
+            // 
+            lblFoto.AutoSize = true;
+            lblFoto.Location = new Point(27, 207);
+            lblFoto.Name = "lblFoto";
+            lblFoto.Size = new Size(42, 20);
+            lblFoto.TabIndex = 42;
+            lblFoto.Text = "Foto:";
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
             // AutorMan03
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(648, 314);
+            Controls.Add(lblRuta);
+            Controls.Add(pcbFoto);
+            Controls.Add(btnCargarFoto);
+            Controls.Add(lblFoto);
             Controls.Add(lblCodNum);
             Controls.Add(lblCodigo);
             Controls.Add(btnCancelar);
@@ -147,6 +198,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Editar Autor";
             Load += AutorMan03_Load;
+            ((System.ComponentModel.ISupportInitialize)pcbFoto).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -163,5 +215,10 @@
         private Label lblNombre;
         private Label lblCodNum;
         private Label lblCodigo;
+        private Label lblRuta;
+        private PictureBox pcbFoto;
+        private Button btnCargarFoto;
+        private Label lblFoto;
+        private OpenFileDialog openFileDialog1;
     }
 }

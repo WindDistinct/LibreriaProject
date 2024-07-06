@@ -46,6 +46,17 @@ namespace Libreria_GUI
                 objAutorBE.aut_ape = txtApellido.Text.Trim();
                 objAutorBE.aut_pais = txtPais.Text.Trim();
 
+                if (!string.IsNullOrEmpty(lblRuta.Text))
+                {
+                    using (FileStream fs = new FileStream(lblRuta.Text, FileMode.Open, FileAccess.Read))
+                    {
+                        using (BinaryReader br = new BinaryReader(fs))
+                        {
+                            objAutorBE.aut_foto = br.ReadBytes((int)fs.Length);
+                        }
+                    }
+                }
+
                 // Usuario Ingresado en Login
                 objAutorBE.aut_user_reg = "admin";
 
@@ -63,6 +74,25 @@ namespace Libreria_GUI
                 MessageBox.Show("Error: " + ex.Message);
             }
 
+        }
+
+        private void btnCargarFoto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                openFileDialog1.Multiselect = false;
+                openFileDialog1.FileName = "";
+                openFileDialog1.Filter = "Fotos (Solo jpg) | *.jpg";
+                openFileDialog1.ShowDialog();
+
+                lblRuta.Text = openFileDialog1.FileName;
+                pcbFoto.Image = Image.FromFile(openFileDialog1.FileName);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

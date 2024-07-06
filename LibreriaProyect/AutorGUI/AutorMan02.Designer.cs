@@ -36,6 +36,12 @@
             lblNombre = new Label();
             btnCancelar = new Button();
             btnGrabar = new Button();
+            lblRuta = new Label();
+            pcbFoto = new PictureBox();
+            btnCargarFoto = new Button();
+            lblFoto = new Label();
+            openFileDialog1 = new OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)pcbFoto).BeginInit();
             SuspendLayout();
             // 
             // txtPais
@@ -106,11 +112,56 @@
             btnGrabar.UseVisualStyleBackColor = true;
             btnGrabar.Click += btnGrabar_Click;
             // 
+            // lblRuta
+            // 
+            lblRuta.BorderStyle = BorderStyle.FixedSingle;
+            lblRuta.Location = new Point(401, 164);
+            lblRuta.Name = "lblRuta";
+            lblRuta.Size = new Size(211, 24);
+            lblRuta.TabIndex = 31;
+            lblRuta.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pcbFoto
+            // 
+            pcbFoto.Location = new Point(316, 146);
+            pcbFoto.Name = "pcbFoto";
+            pcbFoto.Size = new Size(60, 55);
+            pcbFoto.SizeMode = PictureBoxSizeMode.StretchImage;
+            pcbFoto.TabIndex = 30;
+            pcbFoto.TabStop = false;
+            // 
+            // btnCargarFoto
+            // 
+            btnCargarFoto.Location = new Point(104, 159);
+            btnCargarFoto.Name = "btnCargarFoto";
+            btnCargarFoto.Size = new Size(191, 29);
+            btnCargarFoto.TabIndex = 29;
+            btnCargarFoto.Text = "Cargar Foto";
+            btnCargarFoto.UseVisualStyleBackColor = true;
+            btnCargarFoto.Click += btnCargarFoto_Click;
+            // 
+            // lblFoto
+            // 
+            lblFoto.AutoSize = true;
+            lblFoto.Location = new Point(16, 163);
+            lblFoto.Name = "lblFoto";
+            lblFoto.Size = new Size(42, 20);
+            lblFoto.TabIndex = 28;
+            lblFoto.Text = "Foto:";
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
             // AutorMan02
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(624, 260);
+            Controls.Add(lblRuta);
+            Controls.Add(pcbFoto);
+            Controls.Add(btnCargarFoto);
+            Controls.Add(lblFoto);
             Controls.Add(btnCancelar);
             Controls.Add(btnGrabar);
             Controls.Add(txtPais);
@@ -126,6 +177,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Agregar Autor";
             Load += AutorMan02_Load;
+            ((System.ComponentModel.ISupportInitialize)pcbFoto).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -140,5 +192,10 @@
         private Label lblNombre;
         private Button btnCancelar;
         private Button btnGrabar;
+        private Label lblRuta;
+        private PictureBox pcbFoto;
+        private Button btnCargarFoto;
+        private Label lblFoto;
+        private OpenFileDialog openFileDialog1;
     }
 }

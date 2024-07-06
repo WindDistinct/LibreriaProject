@@ -27,7 +27,7 @@ namespace Libreria_GUI
         private void CargarDatos(String strFiltro)
         {
             dtv = new DataView(objAutorBL.ListarAutor());
-            dtv.RowFilter = "Autor like '%" + strFiltro + "%'";
+            dtv.RowFilter = "Apellido like '%" + strFiltro + "%'";
             dtgDatos.DataSource = dtv;
             lblRegistros.Text = dtgDatos.Rows.Count.ToString();
         }

@@ -53,6 +53,10 @@
             dtgDatos.RowHeadersWidth = 51;
             dtgDatos.RowTemplate.Height = 50;
             dtgDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgDatos.ShowCellErrors = false;
+            dtgDatos.ShowCellToolTips = false;
+            dtgDatos.ShowEditingIcon = false;
+            dtgDatos.ShowRowErrors = false;
             dtgDatos.Size = new Size(1082, 420);
             dtgDatos.TabIndex = 0;
             // 

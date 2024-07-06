@@ -84,7 +84,16 @@ namespace Libreria_ADO
                     objAutorBE.aut_ape = dtr["aut_ape"].ToString();
                     objAutorBE.aut_pais = dtr["aut_pais"].ToString();
                     objAutorBE.aut_user_reg = dtr["aut_user_reg"].ToString();
-                  
+
+                    if (dtr["aut_foto"] != DBNull.Value)
+                    {
+                        objAutorBE.aut_foto = (byte[])dtr["aut_foto"];
+                    }
+                    else
+                    {
+                        objAutorBE.aut_foto = null;
+                    }
+
                 }
                 else
                 {
@@ -120,6 +129,7 @@ namespace Libreria_ADO
                 cmd.Parameters.AddWithValue("@aut_nom", objAutorBE.aut_nom);
                 cmd.Parameters.AddWithValue("@aut_ape", objAutorBE.aut_ape);
                 cmd.Parameters.AddWithValue("@aut_pais", objAutorBE.aut_pais);
+                cmd.Parameters.AddWithValue("@aut_foto", objAutorBE.aut_foto);
                 cmd.Parameters.AddWithValue("@aut_user_reg", objAutorBE.aut_user_reg);
 
                 cnx.Open();
@@ -156,6 +166,7 @@ namespace Libreria_ADO
                 cmd.Parameters.AddWithValue("@aut_nom", objAutorBE.aut_nom);
                 cmd.Parameters.AddWithValue("@aut_ape", objAutorBE.aut_ape);
                 cmd.Parameters.AddWithValue("@aut_pais", objAutorBE.aut_pais);
+                cmd.Parameters.AddWithValue("@aut_foto", objAutorBE.aut_foto);
                 cmd.Parameters.AddWithValue("@aut_user_mod", objAutorBE.aut_user_mod);
 
                 cnx.Open();
