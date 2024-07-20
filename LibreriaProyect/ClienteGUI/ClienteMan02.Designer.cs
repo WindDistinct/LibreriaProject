@@ -59,8 +59,15 @@
             pcbFoto = new PictureBox();
             openFileDialog1 = new OpenFileDialog();
             lblRuta = new Label();
+            groupBox2 = new GroupBox();
+            optPremium = new RadioButton();
+            optBasico = new RadioButton();
+            optEstandar = new RadioButton();
+            label1 = new Label();
+            dtpCaducidad = new DateTimePicker();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcbFoto).BeginInit();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // lblNombre
@@ -189,7 +196,7 @@
             // 
             // btnGrabar
             // 
-            btnGrabar.Location = new Point(51, 442);
+            btnGrabar.Location = new Point(377, 572);
             btnGrabar.Name = "btnGrabar";
             btnGrabar.Size = new Size(111, 35);
             btnGrabar.TabIndex = 11;
@@ -199,7 +206,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(181, 442);
+            btnCancelar.Location = new Point(518, 572);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(109, 35);
             btnCancelar.TabIndex = 12;
@@ -339,11 +346,82 @@
             lblRuta.TabIndex = 27;
             lblRuta.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // groupBox2
+            // 
+            groupBox2.CausesValidation = false;
+            groupBox2.Controls.Add(optPremium);
+            groupBox2.Controls.Add(optBasico);
+            groupBox2.Controls.Add(optEstandar);
+            groupBox2.Location = new Point(31, 493);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(279, 114);
+            groupBox2.TabIndex = 28;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Tipo de Membresia";
+            // 
+            // optPremium
+            // 
+            optPremium.AutoSize = true;
+            optPremium.Location = new Point(10, 86);
+            optPremium.Name = "optPremium";
+            optPremium.Size = new Size(89, 24);
+            optPremium.TabIndex = 2;
+            optPremium.TabStop = true;
+            optPremium.Text = "Premium";
+            optPremium.UseVisualStyleBackColor = true;
+            // 
+            // optBasico
+            // 
+            optBasico.AutoSize = true;
+            optBasico.Location = new Point(10, 56);
+            optBasico.Name = "optBasico";
+            optBasico.Size = new Size(73, 24);
+            optBasico.TabIndex = 1;
+            optBasico.TabStop = true;
+            optBasico.Text = "Básico";
+            optBasico.UseVisualStyleBackColor = true;
+            // 
+            // optEstandar
+            // 
+            optEstandar.AutoSize = true;
+            optEstandar.Location = new Point(10, 26);
+            optEstandar.Name = "optEstandar";
+            optEstandar.Size = new Size(87, 24);
+            optEstandar.TabIndex = 0;
+            optEstandar.TabStop = true;
+            optEstandar.Text = "Estandar";
+            optEstandar.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.CausesValidation = false;
+            label1.Location = new Point(31, 440);
+            label1.Name = "label1";
+            label1.Size = new Size(133, 20);
+            label1.TabIndex = 29;
+            label1.Text = "Memb. Caducidad:";
+            // 
+            // dtpCaducidad
+            // 
+            dtpCaducidad.CausesValidation = false;
+            dtpCaducidad.Format = DateTimePickerFormat.Short;
+            dtpCaducidad.Location = new Point(203, 437);
+            dtpCaducidad.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
+            dtpCaducidad.MinDate = new DateTime(2024, 5, 1, 0, 0, 0, 0);
+            dtpCaducidad.Name = "dtpCaducidad";
+            dtpCaducidad.Size = new Size(107, 27);
+            dtpCaducidad.TabIndex = 30;
+            dtpCaducidad.Value = new DateTime(2024, 8, 1, 0, 0, 0, 0);
+            // 
             // ClienteMan02
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(658, 502);
+            ClientSize = new Size(658, 619);
+            Controls.Add(dtpCaducidad);
+            Controls.Add(label1);
+            Controls.Add(groupBox2);
             Controls.Add(lblRuta);
             Controls.Add(pcbFoto);
             Controls.Add(btnCargarFoto);
@@ -382,6 +460,8 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pcbFoto).EndInit();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -419,5 +499,11 @@
         private PictureBox pcbFoto;
         private OpenFileDialog openFileDialog1;
         private Label lblRuta;
+        private GroupBox groupBox2;
+        private RadioButton optBasico;
+        private RadioButton optEstandar;
+        private RadioButton optPremium;
+        private Label label1;
+        private DateTimePicker dtpCaducidad;
     }
 }

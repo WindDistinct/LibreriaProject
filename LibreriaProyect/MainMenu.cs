@@ -65,5 +65,14 @@ namespace Libreria_GUI
         {
             Application.Exit();
         }
+
+        private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult rpta = MessageBox.Show("¿Estás seguro de que deseas salir de la aplicación?", "Confirmar cierre", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rpta == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

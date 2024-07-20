@@ -33,6 +33,9 @@ namespace LibreriaProyect
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+
+            optHombre.Checked = true;
+            optEstandar.Checked = true;
         }
 
         private void CargarUbigeo(String IdReg, String IdProv, String IdDist)
@@ -113,6 +116,25 @@ namespace LibreriaProyect
                 {
                     throw new Exception("Debe seleecionar un sexo.");
                 }
+
+                if (optEstandar.Checked == true)
+                {
+                    objClienteBE.cli_memb_tipo = 0;
+                }
+                else if (optBasico.Checked == true)
+                {
+                    objClienteBE.cli_memb_tipo = 1;
+                }
+                else if (optPremium.Checked == true)
+                {
+                    objClienteBE.cli_memb_tipo = 2;
+                }
+                else
+                {
+                    throw new Exception("Debe seleecionar un tipo de membresia.");
+                }
+
+                objClienteBE.cli_memb_cad = Convert.ToDateTime(dtpCaducidad.Value);
 
                 objClienteBE.ubg_id = cboRegion.SelectedValue.ToString() + cboProvincia.SelectedValue.ToString() + cboDistrito.SelectedValue.ToString();
                 objClienteBE.cli_fec_nac = Convert.ToDateTime(dtpFecNac.Value);

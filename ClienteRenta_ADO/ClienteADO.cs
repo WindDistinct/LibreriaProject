@@ -68,6 +68,8 @@ namespace Libreria_ADO
                     objClienteBE.ubg_id = (dtr["ubg_id"]).ToString();
                     objClienteBE.cli_fec_nac = Convert.ToDateTime(dtr["cli_fec_nac"]);
                     objClienteBE.cli_sex = Convert.ToChar(dtr["cli_sex"]);
+                    objClienteBE.cli_memb_tipo = Convert.ToInt16(dtr["cli_memb_tipo"]);
+                    objClienteBE.cli_memb_cad = Convert.ToDateTime(dtr["cli_memb_cad"]);
 
                     if (dtr["cli_foto"] != DBNull.Value)
                     {
@@ -122,6 +124,8 @@ namespace Libreria_ADO
                 cmd.Parameters.AddWithValue("@cli_sex", objClienteBE.cli_sex);
                 cmd.Parameters.AddWithValue("@cli_foto", objClienteBE.cli_foto);
                 cmd.Parameters.AddWithValue("@cli_user_reg", objClienteBE.cli_user_reg);
+                cmd.Parameters.AddWithValue("@cli_memb_tipo", objClienteBE.cli_memb_tipo);
+                cmd.Parameters.AddWithValue("@cli_memb_cad", objClienteBE.cli_memb_cad);
 
                 cnx.Open();
                 cmd.ExecuteNonQuery();
@@ -165,6 +169,8 @@ namespace Libreria_ADO
                 cmd.Parameters.AddWithValue("@cli_sex", objClienteBE.cli_sex);
                 cmd.Parameters.AddWithValue("@cli_foto", objClienteBE.cli_foto);
                 cmd.Parameters.AddWithValue("@cli_user_mod", objClienteBE.cli_user_mod);
+                cmd.Parameters.AddWithValue("@cli_memb_tipo", objClienteBE.cli_memb_tipo);
+                cmd.Parameters.AddWithValue("@cli_memb_cad", objClienteBE.cli_memb_cad);
 
                 cnx.Open();
                 cmd.ExecuteNonQuery();

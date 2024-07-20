@@ -61,8 +61,15 @@
             btnCargarFoto = new Button();
             lblFoto = new Label();
             openFileDialog1 = new OpenFileDialog();
+            dtpCaducidad = new DateTimePicker();
+            groupBox2 = new GroupBox();
+            optPremium = new RadioButton();
+            optBasico = new RadioButton();
+            optEstandar = new RadioButton();
+            label1 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pcbFoto).BeginInit();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // txtEmail
@@ -113,7 +120,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(193, 466);
+            btnCancelar.Location = new Point(494, 589);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(109, 35);
             btnCancelar.TabIndex = 31;
@@ -123,7 +130,7 @@
             // 
             // btnGrabar
             // 
-            btnGrabar.Location = new Point(57, 466);
+            btnGrabar.Location = new Point(353, 589);
             btnGrabar.Name = "btnGrabar";
             btnGrabar.Size = new Size(111, 35);
             btnGrabar.TabIndex = 30;
@@ -357,11 +364,80 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
+            // dtpCaducidad
+            // 
+            dtpCaducidad.Format = DateTimePickerFormat.Short;
+            dtpCaducidad.Location = new Point(193, 471);
+            dtpCaducidad.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
+            dtpCaducidad.MinDate = new DateTime(2024, 5, 1, 0, 0, 0, 0);
+            dtpCaducidad.Name = "dtpCaducidad";
+            dtpCaducidad.Size = new Size(107, 27);
+            dtpCaducidad.TabIndex = 53;
+            dtpCaducidad.Value = new DateTime(2024, 8, 1, 0, 0, 0, 0);
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(optPremium);
+            groupBox2.Controls.Add(optBasico);
+            groupBox2.Controls.Add(optEstandar);
+            groupBox2.Location = new Point(21, 514);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(279, 114);
+            groupBox2.TabIndex = 51;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Tipo de Membresia";
+            // 
+            // optPremium
+            // 
+            optPremium.AutoSize = true;
+            optPremium.Location = new Point(10, 86);
+            optPremium.Name = "optPremium";
+            optPremium.Size = new Size(89, 24);
+            optPremium.TabIndex = 2;
+            optPremium.TabStop = true;
+            optPremium.Text = "Premium";
+            optPremium.UseVisualStyleBackColor = true;
+            // 
+            // optBasico
+            // 
+            optBasico.AutoSize = true;
+            optBasico.Location = new Point(10, 56);
+            optBasico.Name = "optBasico";
+            optBasico.Size = new Size(73, 24);
+            optBasico.TabIndex = 1;
+            optBasico.TabStop = true;
+            optBasico.Text = "Básico";
+            optBasico.UseVisualStyleBackColor = true;
+            // 
+            // optEstandar
+            // 
+            optEstandar.AutoSize = true;
+            optEstandar.Location = new Point(10, 26);
+            optEstandar.Name = "optEstandar";
+            optEstandar.Size = new Size(87, 24);
+            optEstandar.TabIndex = 0;
+            optEstandar.TabStop = true;
+            optEstandar.Text = "Estandar";
+            optEstandar.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.CausesValidation = false;
+            label1.Location = new Point(21, 476);
+            label1.Name = "label1";
+            label1.Size = new Size(133, 20);
+            label1.TabIndex = 54;
+            label1.Text = "Memb. Caducidad:";
+            // 
             // ClienteMan03
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(646, 554);
+            ClientSize = new Size(646, 649);
+            Controls.Add(label1);
+            Controls.Add(dtpCaducidad);
+            Controls.Add(groupBox2);
             Controls.Add(lblRuta);
             Controls.Add(pcbFoto);
             Controls.Add(btnCargarFoto);
@@ -396,11 +472,14 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "ClienteMan03";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Editar Cliente";
             Load += ClienteMan03_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pcbFoto).EndInit();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -440,5 +519,11 @@
         private Button btnCargarFoto;
         private Label lblFoto;
         private OpenFileDialog openFileDialog1;
+        private DateTimePicker dtpCaducidad;
+        private GroupBox groupBox2;
+        private RadioButton optPremium;
+        private RadioButton optBasico;
+        private RadioButton optEstandar;
+        private Label label1;
     }
 }
